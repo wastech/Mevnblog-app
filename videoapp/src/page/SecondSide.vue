@@ -6,7 +6,7 @@
             <div class="col-6">
                 <p> {{item.category}}</p>
                 <h5>{{item.title}}</h5>
-                <button class="btn btn-primary my-2 my-sm-0 " type="submit">Read Story</button>
+                <button class="btn btn-primary my-2 my-sm-0 " type="submit" @click="goTodetail(item.productId)">Read Story</button>
             </div>
         </div>
     </div>
@@ -18,27 +18,42 @@ export default {
     data() {
         return {
             items: [{
+				productId: 4,
                     src: "https://cdn.dribbble.com/users/1355613/screenshots/10374655/media/6f923827220b3a4eb2082262c692563e.jpg",
                     category: "Blog Post",
                     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
                 },
                 {
+					productId: 5,
                     src: "https://cdn.dribbble.com/users/1355613/screenshots/10374655/media/6f923827220b3a4eb2082262c692563e.jpg",
                     category: "Blog Post",
                     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
                 },
                 {
+					productId: 6,
                     src: "https://cdn.dribbble.com/users/1355613/screenshots/10374655/media/6f923827220b3a4eb2082262c692563e.jpg",
                     category: "Blog Post",
                     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
                 },
                 {
-                    src: "https://cdn.dribbble.com/users/1355613/screenshots/10374655/media/6f923827220b3a4eb2082262c692563e.jpg",
+				     productId: 7,
+				    src: "https://cdn.dribbble.com/users/1355613/screenshots/10374655/media/6f923827220b3a4eb2082262c692563e.jpg",
                     category: "Blog Post",
                     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
                 }
 
             ]
+        }
+	},
+	 methods: {
+        goTodetail(prodId) {
+            let proId = prodId
+            this.$router.push({
+                name: 'viewpost',
+                params: {
+                    Pid: proId
+                }
+            })
         }
     }
 }

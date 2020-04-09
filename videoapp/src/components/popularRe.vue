@@ -64,6 +64,11 @@ height:100%;
   clear: both;
   display: table;
 }
+@media screen and (max-width: 750px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
 
 
 </style>

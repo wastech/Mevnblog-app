@@ -18,7 +18,7 @@
 import Related from '@/components/Related.vue'
 import Newsletter from '@/components/Newsletter.vue'
 export default {
-	name: 'customer',
+	name: 'customerc',
 	components:{
 		Related,
 		Newsletter
