@@ -1,4 +1,4 @@
-# videoapp
+# blog-app
 
 ## Project setup
 ```
