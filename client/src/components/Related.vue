@@ -21,17 +21,17 @@ export default {
     data() {
         return {
             items: [{
-                    src: "https://cdn.dribbble.com/users/1355613/screenshots/10374655/media/6f923827220b3a4eb2082262c692563e.jpg",
+                    src: "https://image.freepik.com/free-photo/portrait-smiling-young-woman-dress_171337-9899.jpg",
                     category: "Blog Post",
                     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
                 },
                 {
-                    src: "https://cdn.dribbble.com/users/1355613/screenshots/10374655/media/6f923827220b3a4eb2082262c692563e.jpg",
+                    src: "https://image.freepik.com/free-photo/blonde-girl-with-flowers-near-face_91497-1995.jpg",
                     category: "Blog Post",
                     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
                 },
                 {
-                    src: "https://cdn.dribbble.com/users/1355613/screenshots/10374655/media/6f923827220b3a4eb2082262c692563e.jpg",
+                    src: "https://image.freepik.com/free-photo/portrait-surprised-young-woman-summer-clothes_171337-10724.jpg",
                     category: "Blog Post",
                     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
                 }
@@ -46,8 +46,8 @@ export default {
 .col-sm-4 {
 
     height: 25rem;
-	margin-top: 3rem;
-	margin-bottom: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 
 }
 
@@ -60,11 +60,19 @@ p {
 
     margin-top: 1rem;
 }
+h5{
+     overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-weight: 700;
+}
 
 img {
     width: 100%;
     height: 70%;
-	border-image: 3rem;
+    border-image: 3rem;
+	object-fit: cover;
 }
 
 h1 {
@@ -76,16 +84,20 @@ button {
     border-radius: 0.7rem;
 
 }
+
 @media screen and (max-width: 750px) {
-  img {
-    width: 100%;
-    height: 10rem;
+    img {
+        width: 100%;
+        height: 10rem;
+		object-fit: cover;
+    }
+
+    .col-sm-4 {
+
+        height: 20rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+
+    }
 }
-.col-sm-4 {
-
-    height: 20rem;
-	margin-top: 1rem;
-	margin-bottom: 2rem;
-
-}}
 </style>

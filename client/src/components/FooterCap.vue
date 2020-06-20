@@ -1,97 +1,109 @@
 <template>
 <div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <h1>Ready To Take a Drive</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus</p>
+  <section class="subscribe pb-50 pt-70">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class=" mt-15 mb-15">
+            <h1>readdy to take a test drive?</h1>
+            <p>subscribe subscribe newsletter subscribe newsletter vsubscribe newsletter subscribe newsletter newsletter</p>
+          </div>
         </div>
-        <div class="col-sm">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="enter you email...." aria-label="Search">
-                <button class="button">subscribe</button>
-            </form>
+        <div class="col-md-6">
+          <div class="subscribe-wrapper subscribe2-wrapper mb-15">
+            <div class="subscribe-form">
+<form class="form-inline ml-4 mt-3">
+       <div class="row">
+    <div class="col-8">
+    <input class="form-control mr-sm-2" type="search" placeholder="@ enter your email" v-model="aremu" aria-label="@ enter your email">
+    </div>
+    <div class="col-4 ">
+      <button class="btn btn-outline-success " type="submit">try it free</button>
+    </div>
+    </div>
+    </form>
+            </div>
+          </div>
         </div>
+      </div>
 
     </div>
+  </section>
 </div>
 </template>
 
 <style scoped>
-.container {
-    background-color: blue;
-    height: 80%;
-    padding: 2em;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-}
-
-h1 {
-    font-size: 2rem;
-    color: white;
-    padding: 0.3rem;
-
-}
-
-input {
-
-    padding: 2rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    margin-top: 2rem;
-
-}
-
-.button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
+h1{
+  max-width: 80%;
   color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  margin-top: 1rem;
+  font-weight: 900;
+  font-size: 3em;
 }
 
-.button:hover {background-color: #3e8e41}
+p{
+  max-width: 80%;
+  color: #fff;
 
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+}
+.container {
+  max-width: 79%;
+  margin-top:5em;
+}
+.subscribe {
+  background-image: linear-gradient(to top, black 1%, black 100%);
 }
 
-p {
-    color: white;
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+.pt-70 {
+  padding-top: 30px;
+}
+
+.mb-15 {
+  margin-bottom: 30px;
+}
+button{
+  margin-left: -3rem;
+  background-color: blue;
+  color:white;
+  width: 8em;
+   padding: 1.3em;
+  border-radius: 0.7rem;
+}
+input{
+  border-radius: 0.7rem;
+  padding: 2em;
 }
 @media screen and (max-width: 750px) {
- .container {
-    background-color: blue;
-    height: 35%;
-    padding: 1em;
-    margin-top: 2rem;
-    
+  .pt-70 {
+  padding-top: 15px;
 }
-input {
+  .mb-15 {
+  margin-bottom: 10px;
+}
+ h1{
 
-    padding: 1rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    margin-top: 1rem;
+  color: #fff;
+  font-weight: 100%;
+  font-size: 2em;
+   max-width: 100%;
+}
+.container {
+  max-width: 97%;
+  margin-top:2em;
+}
+p{
+   max-width: 100%;
+}
+ 
+  img {
+  width: 100%;
+   height: 30%;
+
 
 }
-
-button {
-   
-
-    margin-top: 2rem;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-}
-
 }
 </style>
