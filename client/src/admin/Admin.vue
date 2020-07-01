@@ -31,7 +31,7 @@ export default {
   data(){
     return{
       items:[
-         {name:'blogPost', name1:' Add blogposts',  name2:'blogposts' ,link1:'/addnewpost'},
+         {name:'blogPost', name1:' Add blogposts',  name2:'blogposts' ,link1:'/addnewpost' ,link2:'/post' },
              {name:' NewBlogPost', name1:'add NewBlogPost',  name2:'NewBlogPosts'},
            {name:'Newsletter', name1:"subsribers" ,link1:'/subscribers'},
            {name:'Upcoming Event', name1:'Events',  name2:'Add NewEvent',link2:'/addNewEvent'},

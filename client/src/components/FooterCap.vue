@@ -16,10 +16,10 @@
 <form class="form-inline ml-4 mt-3">
        <div class="row">
     <div class="col-8">
-    <input class="form-control mr-sm-2" type="search" placeholder="@ enter your email" v-model="aremu" aria-label="@ enter your email">
+    <input class="form-control mr-sm-2" type="email" placeholder="@ enter your email" v-model="email" aria-label="@ enter your email">
     </div>
     <div class="col-4 ">
-      <button class="btn btn-outline-success " type="submit">try it free</button>
+      <button class="btn btn-outline-success " type="submit "  @click="addMails">submit</button>
     </div>
     </div>
     </form>
@@ -32,6 +32,25 @@
   </section>
 </div>
 </template>
+<script>
+import Newsletter from '@/services/Newsletter'
+export default {
+    data() {
+        return {
+       email:''
+        }},
+         methods: {
+    async addMails () {
+      const response =  await Newsletter.addMails( this.email )
+  
+     console.log(response.data)
+    // this.$router.push({ name: 'posts' })
+    }
+  }
+    }
+    
+    
+</script>
 
 <style scoped>
 h1{

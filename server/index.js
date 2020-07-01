@@ -1,26 +1,40 @@
 const express = require('express')
-var cors = require('cors')
 const mongoose = require('mongoose')
-var bodyParser = require('body-parser')
-var morgan = require('morgan')
-const routes = require('./routes/blogpostroute')
+const bodyParser = require('body-parser')
+const morgan = require('morgan')
+const cors = require('cors');
+const routes = require('./routes/article')
+const eventroutes = require("./routes/eventroute");
+const Newsroutes = require("./routes/newsletter");
+
 
 
 
 const app = express()
-app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 app.use(morgan('tiny'))
 app.use(routes)
+app.use(eventroutes);
+app.use(Newsroutes);
 
 
+mongoose
+	.connect("mongodb://localhost/blogpost", {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useFindAndModify: false,
+	})
+	.then(
+		() => {
+			console.log("Database is connected");
+		},
+		(err) => {
+			console.log("Can not connect to the database" + err);
+		},
+	);
 
-mongoose.connect('mongodb://localhost/vueblog', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-})
 
 
 const port = process.env.port || 3000

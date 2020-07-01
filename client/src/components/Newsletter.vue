@@ -13,8 +13,8 @@
               <div class="subscribe-wrapper subscribe2-wrapper mb-15">
                 <div class="subscribe-form">
                   <form action="#">
-                    <input placeholder="enter your email address" type="email">
-                    <button>subscribe <i class="fas fa-long-arrow-alt-right"></i></button>
+                    <input placeholder="enter your email address" type="email" v-model="email">
+                    <button>subscribe <i class="fas fa-long-arrow-alt-right" @click="addpost()"></i></button>
                   </form>
                 </div>
               </div>
@@ -26,6 +26,25 @@
   </section>
 </div>
 </template>
+<script>
+import PostsService from '@/services/Newsletter'
+export default {
+  data(){
+  return {
+    email:'',
+  }
+  },
+  methods: {
+    async addpost () {
+      await PostsService.addPost({
+        email: this.email,
+       
+      })
+      this.$router.push({ name: 'post' })
+    }
+  }
+}
+</script>
 
 <style scoped>
 .subscribe-area {

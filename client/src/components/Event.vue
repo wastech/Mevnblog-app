@@ -3,10 +3,11 @@
     <div class="container">
         <h1> Upcomig Events</h1>
         <div class="row">
-            <div class="col-sm-4" v-for="(item,i) in items" :key="i">
-                <img :src="item.src">
+            <div class="col-sm-4" v-for="(item,index) in items" :key="index">
+                <img :src="item.image">
                 <p>{{item.category}}</p>
                 <h5>{{item.title}}</h5>
+                <p>{{item.description}}</p>
 
                 <button class="btn btn-primary my-2 my-sm-0 " type="submit">Read Story</button>
             </div>
@@ -17,28 +18,28 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
-            items: [{
-                    src: "https://image.freepik.com/free-vector/colorful-new-year-party-concept_23-2148373938.jpg",
-                    category: "event",
-                    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
-                },
-                {
-                    src: "https://image.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-                    category: "event",
-                    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
-                },
-                {
-                    src: "https://image.freepik.com/free-vector/blue-postponed-sign-illustrated_23-2148496126.jpg",
-                    category: "event",
-                    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus"
-                }
-
-            ]
+            items:[]
         }
-    }
+    },
+    methods: {
+        
+  fetchData: function () {
+      let uri = 'http://localhost:3000/events';
+    var self = this
+    return axios.get(uri)
+      .then(function (response) {
+        self.items = response.data.items
+      })
+      .catch(function (error) {
+        self.fetchError = error
+      })
+  }
+}
+  
 }
 </script>
 
