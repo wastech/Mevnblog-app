@@ -9,9 +9,9 @@
                 <h5>{{item.title}}</h5>
                 <p>{{item.description}}</p>
 
-                <button class="btn btn-primary my-2 my-sm-0 " type="submit">
-                    <router-link v-bind:to="{ name: 'viewevent', params: { title:item._id}}"  class="readMore">Read More</router-link>
-                    Read Story</button>
+               
+                    <router-link v-bind:to="{ name: 'viewevent', params: { title:item._id}}"  class="readMore"> <button class="btn btn-primary my-2 my-sm-0 " type="submit">  Read Story</button></router-link>
+                  
             </div>
 
         </div>
