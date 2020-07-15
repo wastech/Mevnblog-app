@@ -15,48 +15,20 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
-      items: [{
-          productId: 4,
-          src: "https://image.freepik.com/free-photo/beautiful-girl-stands-near-walll-with-leaves_8353-5378.jpg",
-          category: "Blog Post",
-          title: "NairaMarley, Babatunde Gbadamosi, write apology cccccccccccccccccccccccccccccccccletters to Gov. Sanwo-Olu"
-        },
-        {
-          productId: 5,
-          src: "https://image.freepik.com/free-photo/cropped-image-handsome-afro-american-sports-man-rubbing-hands-with-chalk_171337-9260.jpg",
-          category: "Blog Post",
-          title: "Banky W slams state governments that have suspended the lockdown to celebrate easter"
-        },
-        {
-          productId: 6,
-          src: "https://image.freepik.com/free-photo/happy-young-african-man-showing-display-laptop_171337-9686.jpg",
-          category: "Blog Post",
-          title: "Ekiti state discharges second Coronavirus patient"
-        },
-        {
-          productId: 7,
-          src: " https://image.freepik.com/free-photo/confident-beautiful-brunette-girl-looking-camera-smiling-white-wall_176420-565.jpg",
-          category: "Blog Post",
-          title: "Ekiti state discharges second Coronavirus patient"
-        }
-
+      items: [
       ]
     }
   },
-  methods: {
-    goTodetail(prodId) {
-      let proId = prodId
-      this.$router.push({
-        name: 'viewpost',
-        params: {
-          Pid: proId
-        }
+   created() {
+      let uri = 'http://localhost:3000/get_blogs';
+      axios.get(uri).then(response => {
+        this.items = response.data.data;
       })
-    }
-  }
+    },
 }
 </script>
 

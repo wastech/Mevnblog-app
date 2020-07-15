@@ -1,43 +1,34 @@
 <template>
 <div class="main">
-    <div v-for="(history,index) in histories" :key="index">
-        <img :src="history.src">
-        <h5>{{history.category}}</h5>
-        <h2>{{history.title}}</h2>
-        <p class="mt-4 mb-4">{{history.text}}.</p>
-        <button class="btn btn-primary my-1 my-sm-0" type="submit" @click="goTodetail(history.Id)">Read Story</button>
+    <div v-for="(post,index) in posts" :key="index">
+        <img :src="post.image">
+        <h5>{{post.category}}</h5>
+        <h2>{{post.title}}</h2>
+        <p class="mt-4 mb-4">{{posts.description}}.</p>
+        <button class="btn btn-primary my-1 my-sm-0" type="submit" @click="goTodetail(post.Id)">Read Story</button>
     </div>
 </div>
 </template>
 
 <script>
+import History from '@/services/History'
 export default {
     data() {
         return {
-            histories: [{
-                Id: 1,
-                src: "https://image.freepik.com/free-vector/man-with-mustache_1308-41559.jpg",
-                category: "Customer History",
-                title: "David Adedeji Adeleke (born November 21, 1992), who is better known as Davido, is an American-born Nigerian singer, songwriter and record producer....",
-                text: "David Adedeji Adeleke (born November 21, 1992), who is better known as Davido, is an American-born Nigerian singer, songwriter and record producer....",
+            proId: this.$route.params.Hid,
+            posts: []
 
-
-            }]
         }
+
     },
+async created(){
+const response =  await History.fetchPosts(this.posts)
+      this.posts = response.data.data
+     console.log(response.data.data)
+    // this.$router.push({ name: 'posts' })
+}  }
+    
 
-    methods: {
-        goTodetail(prodId) {
-            let proId = prodId
-            this.$router.push({
-                name: 'customer',
-                params: {
-                    Hid: proId
-                }
-            })
-        }
-    }
-}
 </script>
 
 <style scoped>

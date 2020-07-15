@@ -28,51 +28,18 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            items: [{
-                    productId: 1,
-                    src: "https://image.freepik.com/free-photo/smiley-man-liking-idea-with-copy-space_23-2148221727.jpg",
-                    category: "Blog Post",
-                    title: "Photo Of Man Who Was Nabbed For Stealing Newborn Baby's Placenta In Ogun"
-                },
-                {
-                    productId: 2,
-                    src: "https://image.freepik.com/free-photo/portrait-smiling-young-man-eyewear_171337-4842.jpg",
-                    category: "Blog Post",
-                    title: "10 Lovely Things You Can Give Your Partner as Valentine Gift (No. 3 is Super Romantic"
-                },
-                {
-                    productId: 3,
-                    src: "https://image.freepik.com/free-photo/happy-young-man-pointing-his-finger-against-yellow-backdrop_23-2148119753.jpg",
-                    category: "Blog Post",
-                    title: "“I have grown” – Yvonne Jegede says as she shares stuns in new photo",
-                }
-
-            ]
+            items: []
             // errors: []
         }
     },
-    /* created() {
-         axios.get(`http://localhost:3000/getpost`)
-             .then(response => {
-                 // JSON responses are automatically parsed.
-                 this.items = response.data
-             })
-             .catch(e => {
-                 this.errors.push(e)
-             })
-     },*/
+   created() {
+      let uri = 'http://localhost:3000/get_blogs';
+      axios.get(uri).then(response => {
+        this.items = response.data.data;
+      })
+    },
 
-    methods: {
-        goTodetail(prodId) {
-            let proId = prodId
-            this.$router.push({
-                name: 'viewpost',
-                params: {
-                    Pid: proId
-                }
-            })
-        }
-    }
+   
 }
 </script>
 

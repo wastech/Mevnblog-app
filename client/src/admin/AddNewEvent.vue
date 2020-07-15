@@ -26,7 +26,7 @@
     <input type="text" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" v-model="posts.image">
     <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>-->
   </div>
-    <tinymce id="d1" v-model="posts.description"></tinymce>
+            <wysiwyg v-model="posts.description" />
     <button type="button" class="btn btn-primary btn-lg btn-block mt-5 " @click="addPost">submit</button>
 </form>
 </div>
@@ -59,7 +59,7 @@ export default {
       const response =  await Event.addPost(this.posts)
       this.posts = response.data.posts
      console.log(response.data)
-     this.$router.push({ name: 'posts' })
+     this.$router.push({ name: 'event' })
     }
   }
     }

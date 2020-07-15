@@ -39,12 +39,13 @@ export default {
         return {
        email:''
         }},
-         methods: {
+  methods: {
     async addMails () {
-      const response =  await Newsletter.addMails( this.email )
-  
-     console.log(response.data)
-    // this.$router.push({ name: 'posts' })
+      await Newsletter.addMails({
+        email: this.email,
+       
+      })
+      this.$router.push({ name: 'subscriber' })
     }
   }
     }

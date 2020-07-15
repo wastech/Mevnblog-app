@@ -1,8 +1,8 @@
 const Event= require('../models/eventmodel');
 
 module.exports={
-	async saveEvent(req,res){
-		await Event.create(req.body, (err, data) => {
+	 saveEvent(req,res){
+		 Event.create(req.body, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",
@@ -12,9 +12,9 @@ module.exports={
 			}
 		});
 	},
-	async getEvents(req,res){
+	 getEvents(req,res){
 		console.log(res.body)
-		await Event.find({})
+	 Event.find({})
 			.sort("-date")
 			.exec((err, data) => {
 				if (!err) {
@@ -32,8 +32,8 @@ module.exports={
 			});
 	},
 
-	async deleteEvent(req,res){
-		await Event.remove({ _id: req.params.id }, (err, data) => {
+	 deleteEvent(req,res){
+		Event.remove({ _id: req.params.id }, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",
@@ -48,57 +48,63 @@ module.exports={
 		});
 	},
 
-	async getEvent(req,res){
+	 getEvent(req,res){
 		console.log(req.body);
-		await Event.findOne({ _id: req.params.id }, (err, data) => {
-			if (!err) {
-				res.json({
-					status: "success",
-					message: "article fetched successfully",
-					data: data,
-				});
-			} else {
-				res.json({
-					status: "fail",
-					message: "unable to delete",
-				});
-			}
-		});
+		 Event.findById({ id: req.params.id }, (err, data) => {
+				if (!err) {
+					res.json({
+						status: "success",
+						message: "article fetched successfully",
+						data: data,
+					});
+				} else {
+					res.json({
+						status: "fail",
+						message: "unable to get post",
+						err:err
+					});
+				}
+			});
 	},
 
 
-	async updateEvent(req,res){
-		await Event.findByIdAndUpdate(req.params.id, req.params, (err, data) => {
-			if (err) {
-				res.json({
-					status: "fail",
-					message: "no data found",
-				});
-			} else {
-				res.json({
-					status: "success",
-					message: "updated successfully",
-				});
-			}
-		});
-	},
+	 updateEvent(req,res){
+		 Event.findById(req.params.id, function(err, post) {
+    if (!post)
+      res.status(404).send("data is not found");
+    else {
+			post.author = req.body.author;
+        post.title = req.body.title;
+				post.category = req.body.category;
+				post.image = req.body.image;
+				post.description = req.body.description;
+				
+        post.save().then(() => {
+          res.json('Update complete');
+      })
+      .catch(() => {
+            res.status(400).send("unable to update the database");
+      });
+    }
+  });
+	 },
 
-	async getEventByCategory(req,res){
+	 getEventByCategory(req,res){
 		console.log(req.body);
 		 
-		await Event.find({ category: req.body.category }, (err, data) => {
-			if (!err) {
-				res.json({
-					status: "success",
-					message: "category fetched successfully",
-					data: data,
-				});
-			} else {
-				res.json({
-					status: "fail",
-					message: "unable to get category",
-				});
-			}
-		});
+		 Event.find({ category: req.query["category"] }, (err, data) => {
+				if (!err) {
+					res.json({
+						status: "success",
+						message: "category fetched successfully",
+						data: data,
+					});
+				} else {
+					res.json({
+						status: "fail",
+						message: "unable to get category",
+					});
+				}
+			});
 	},
 }

@@ -11,11 +11,10 @@ import Register from "@/admin/Register.vue";
 import Subscribers from "@/admin/Subscribers.vue";
 import AddNewEvent from "@/admin/AddNewEvent.vue";
 import AddHistory from "@/admin/AddHistory.vue";
-import addNewResouce from "@/admin/addNewResouce.vue";
-
-
-
-
+import addNewArticle from "@/admin/addNewArticle.vue";
+import Events from "@/admin/Events.vue";
+import editEvent from "@/admin/editEvent.vue";
+import viewEvent from "@/components/viewEvent.vue";
 
 
 
@@ -30,9 +29,24 @@ const routes = [
 		component: Subscribers,
 	},
 	{
-		path: "/addNewResouce",
-		name: "addNewResouce",
-		component: addNewResouce,
+		path: "/viewEvent/:title",
+		name: "viewevent",
+		component: viewEvent,
+	},
+	{
+		path: "/editEvent/:id",
+		name: "editEvent",
+		component: editEvent,
+	},
+	{
+		path: "/events",
+		name: "event",
+		component: Events,
+	},
+	{
+		path: "/addarticle",
+		name: "article",
+		component: addNewArticle,
 	},
 	{
 		path: "/addHistory",

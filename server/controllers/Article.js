@@ -1,9 +1,9 @@
 const Article=require('../models/Article');
 
 module.exports={
-	async saveArticle(req,res){
+	 saveArticle(req,res){
 		console.log("--save article--");
-		await Article.create(req.body,(err,data)=>
+		 Article.create(req.body,(err,data)=>
 		{
 			if(!err){
 				res.json({
@@ -14,9 +14,9 @@ module.exports={
 			}
 		})
 	},
-	async getArticles(req,res){
+	 getArticles(req,res){
 		console.log("--getting articles--");
-		await Article.find({}).sort('-date').exec((err,data)=>{
+		 Article.find({}).sort('-date').exec((err,data)=>{
 				if(!err){
 					res.json({
 						status:"success",
@@ -34,9 +34,9 @@ module.exports={
 		})
 	},
 
-	async deleteArticle(req,res){
+ deleteArticle(req,res){
 		console.log("--deleting todo--");
-		await Article.deleteOne({_id:req.params.id},(err,data)=>{
+		 Article.deleteOne({_id:req.params.id},(err,data)=>{
 			if(!err){
 				res.json({
 					status:"success",
@@ -52,10 +52,10 @@ module.exports={
 		})
 	},
 
-	async getArticle(req,res){
+	 getArticle(req,res){
 		console.log("--get article--");
 		console.log(req.body);
-		await Article.findOne({_id:req.params.id},(err,data)=>{
+		 Article.findOne({_id:req.params.id},(err,data)=>{
 			if(!err){
 				res.json({
 					status:"success",
@@ -73,9 +73,9 @@ module.exports={
 	},
 
 
-	async updateArticle(req,res){
+	 updateArticle(req,res){
 		console.log("---updating todo----");
-		await Article.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
+		 Article.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
 			if (err) {
 				res.json({
 					status: "fail",
@@ -90,11 +90,11 @@ module.exports={
 		});
 	},
 
-	async getArticleByCategory(req,res){
+	 getArticleByCategory(req,res){
 		console.log("--get category--");
 		console.log(req.body);
 		 
-		await Article.find({ category: req.query.category }, (err, data) => {
+	 Article.find({ category: req.query.category }, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",

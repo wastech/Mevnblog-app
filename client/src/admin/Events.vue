@@ -12,16 +12,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="post in posts" :key="post._id">
-      <th scope="row"></th>
-      <td>{{post.title}}</td>
+    <tr v-for="(post,index) in posts" :key="index">
+      <th scope="row">{{ post.index + 1 }}</th>
       <td>{{post.author}}</td>
+      <td>{{post.title}}</td>
+      
       <td>{{post.category}}</td>
       <td>published</td>
-       <td><button type="button" class="btn btn-secondary">edit</button></td>
+        <td><router-link :to="{name: 'editEvent', params: { id: post._id }}" class="btn btn-primary">Edit</router-link></td>
 
           <td>
-            <button type="button" class="btn btn-secondary">delete</button>
+            <button type="button" class="btn btn-secondary" @click.prevent="deletePost(post._id)">delete</button>
           </td>
         
     </tr>
@@ -43,12 +44,20 @@ export default {
     }
   },
    created() {
-      let uri = 'http://localhost:3000/get_articles';
+      let uri = 'http://localhost:3000/events';
       axios.get(uri).then(response => {
         this.posts = response.data.data;
       })
     },
-  
+   methods: {
+      deletePost(id)
+      {
+        let uri = `http://localhost:3000/deleteevent/${id}`;
+        axios.delete(uri).then(response => {
+          this.posts.splice(this.posts.indexOf(id), 1);
+        });
+      }
+    }
 }
 </script>
 <style  scoped>

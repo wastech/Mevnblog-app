@@ -3,10 +3,10 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import tinymce from 'vue-tinymce-editor'
+import wysiwyg from "vue-wysiwyg";
 
 
-Vue.component("tinymce", tinymce);
+Vue.use(wysiwyg, {});
 
 Vue.config.productionTip = false
 

@@ -1,13 +1,13 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var HistorySchema = new Schema({
+var BlogSchema = new Schema({
 	title: String,
 	description: String,
 	image: String,
 	category: String,
-	author: String
+	author: String,
 });
 
-var History = mongoose.model("History", HistorySchema);
-module.exports = History;
+var Blog = mongoose.model("Blog", BlogSchema);
+module.exports = Blog;

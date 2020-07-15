@@ -1,7 +1,7 @@
 <template>
 
 <div class="container">
-    <h4>Article post</h4>
+    <h4>Ad a new BlogPost</h4>
   <div class="row">
   
  
@@ -26,7 +26,7 @@
     <input type="text" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" v-model="posts.image">
     <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>-->
   </div>
-    <tinymce id="d1" v-model="posts.description"></tinymce>
+            <wysiwyg v-model="posts.description" />
     <button type="button" class="btn btn-primary btn-lg btn-block mt-5 " @click="addPost">submit</button>
 </form>
 </div>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Article from '@/services/Article'
+import Blogpost from '@/services/Blogpost'
 export default {
     data() {
         return {
@@ -56,16 +56,15 @@ export default {
         }},
          methods: {
     async addPost () {
-      const response =  await Article.addPost(this.posts)
-      this.posts = response.data.posts
-     console.log(response.data)
-     this.$router.push({ name: 'posts' })
+      const response =  await Blogpost.addPost(this.posts)
+      this.posts = response.data.data
+     console.log(response.data.data)
+    // this.$router.push({ name: 'posts' })
     }
   }
     }
     
 </script>
-
 <style scoped>
 .form-group.required .control-label:after { 
    content:"*";

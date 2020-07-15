@@ -1,7 +1,7 @@
 <template>
 
 <div class="container">
-    <h4>Article a New History</h4>
+    <h4>Ad a new Article</h4>
   <div class="row">
   
  
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import History from '@/services/History'
+import Article from '@/services/Article'
 export default {
     data() {
         return {
@@ -56,7 +56,7 @@ export default {
         }},
          methods: {
     async addPost () {
-      const response =  await History.addPost(this.posts)
+      const response =  await Article.addPost(this.posts)
       this.posts = response.data.data
      console.log(response.data.data)
     // this.$router.push({ name: 'posts' })

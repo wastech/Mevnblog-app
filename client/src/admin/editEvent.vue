@@ -1,12 +1,12 @@
 <template>
 
 <div class="container">
-    <h4>Article a New History</h4>
+    <h4>update event</h4>
   <div class="row">
   
  
     <div class="col-sm-12">
-  <form>
+  <form  @submit.prevent="updatePost">
   <div class="form-group required">
     <label for="" class='control-label'>author</label>
     <input type="text" class="form-control" aria-describedby="textHelp"  v-model="posts.author" placeholder="author name">
@@ -27,7 +27,7 @@
     <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>-->
   </div>
             <wysiwyg v-model="posts.description" />
-    <button type="button" class="btn btn-primary btn-lg btn-block mt-5 " @click="addPost">submit</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block mt-5 " @click="updatePost">update</button>
 </form>
 </div>
  
@@ -39,32 +39,33 @@
 </template>
 
 <script>
-import History from '@/services/History'
+import axios from 'axios'
 export default {
     data() {
         return {
             
-	      posts : {
-          author : '',
-          title: '',
-          category:'',
-          image: '',
-          description:''
-
-          
-        }
+	      posts :{}
+        
         }},
-         methods: {
-    async addPost () {
-      const response =  await History.addPost(this.posts)
-      this.posts = response.data.data
-     console.log(response.data.data)
-    // this.$router.push({ name: 'posts' })
-    }
-  }
+      created() {
+        let uri = `http://localhost:3000/getevent/${this.$route.params.id}`;
+        axios.get(uri).then((response) => {
+            this.posts = response.data.data;
+            console.log(this.posts)
+        });
+      },
+       methods: {
+        updatePost() {
+          let uri = `http://localhost:3000/updateevent/${this.$route.params.id}`;
+          axios.post(uri, this.posts).then(() => {
+            this.$router.push({name: 'event'});
+          });
+        }
+      }
     }
     
 </script>
+
 <style scoped>
 .form-group.required .control-label:after { 
    content:"*";

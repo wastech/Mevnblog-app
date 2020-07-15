@@ -1,9 +1,9 @@
 const Newsletter = require("../models/Newsletter");
 
 module.exports = {
-	async saveMail(req, res) {
+	 saveMail(req, res) {
 		console.log("--save email--");
-		await Newsletter.create(req.body, (err, data) => {
+	 Newsletter.create(req.body, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",
@@ -14,9 +14,9 @@ module.exports = {
 			}
 		});
 	},
-	async getMails(req, res) {
+ getMails(req, res) {
 		console.log("--getting mails--");
-		await Newsletter.find({})
+	 Newsletter.find({})
 			.sort("-date")
 			.exec((err, data) => {
 				if (!err) {
@@ -34,9 +34,9 @@ module.exports = {
 			});
 	},
 
-	async deleteMail(req, res) {
+	 deleteMail(req, res) {
 		console.log("--deleting mail--");
-		await Newsletter.deleteOne({ _id: req.params.id }, (err, data) => {
+	 Newsletter.deleteOne({ _id: req.params.id }, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",

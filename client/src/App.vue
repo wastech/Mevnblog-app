@@ -17,7 +17,8 @@ export default {
 
 }
 </script>
-<style scoped>
+<style >
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
 
 </style>
 

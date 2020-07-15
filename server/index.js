@@ -6,6 +6,8 @@ const cors = require('cors');
 const routes = require('./routes/article')
 const eventroutes = require("./routes/eventroute");
 const Newsroutes = require("./routes/newsletter");
+const history = require("./routes/history");
+const blogpost = require("./routes/blogpost");
 
 
 
@@ -18,6 +20,8 @@ app.use(morgan('tiny'))
 app.use(routes)
 app.use(eventroutes);
 app.use(Newsroutes);
+app.use(history)
+app.use(blogpost);
 
 
 mongoose

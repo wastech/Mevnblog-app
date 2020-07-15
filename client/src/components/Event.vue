@@ -3,13 +3,15 @@
     <div class="container">
         <h1> Upcomig Events</h1>
         <div class="row">
-            <div class="col-sm-4" v-for="(item,index) in items" :key="index">
+            <div class="col-sm-4" v-for="item in items.slice().reverse()" :key="item._id">
                 <img :src="item.image">
                 <p>{{item.category}}</p>
                 <h5>{{item.title}}</h5>
                 <p>{{item.description}}</p>
 
-                <button class="btn btn-primary my-2 my-sm-0 " type="submit">Read Story</button>
+                <button class="btn btn-primary my-2 my-sm-0 " type="submit">
+                    <router-link v-bind:to="{ name: 'viewevent', params: { title:item._id}}"  class="readMore">Read More</router-link>
+                    Read Story</button>
             </div>
 
         </div>
@@ -25,21 +27,12 @@ export default {
             items:[]
         }
     },
-    methods: {
-        
-  fetchData: function () {
+   created() {
       let uri = 'http://localhost:3000/events';
-    var self = this
-    return axios.get(uri)
-      .then(function (response) {
-        self.items = response.data.items
+      axios.get(uri).then(response => {
+        this.items = response.data.data;
       })
-      .catch(function (error) {
-        self.fetchError = error
-      })
-  }
-}
-  
+    },
 }
 </script>
 
@@ -56,6 +49,12 @@ export default {
 }
 p {
     color: blue;
+
+     overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  
 
     margin-top: 1rem;
 }

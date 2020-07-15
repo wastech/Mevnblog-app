@@ -6,6 +6,7 @@ var PostSchema = new Schema({
 	description: String,
 	image: String,
 	category: String,
+	author: String
 });
 
 var Post = mongoose.model("Event", PostSchema);
