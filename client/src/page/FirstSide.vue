@@ -1,11 +1,12 @@
 <template>
 <div class="main">
-    <div v-for="(post,index) in posts" :key="index">
+    <div v-for="post  in posts" :key="post._id">
         <img :src="post.image">
         <h5>{{post.category}}</h5>
         <h2>{{post.title}}</h2>
-        <p class="mt-4 mb-4">{{posts.description}}.</p>
-        <button class="btn btn-primary my-1 my-sm-0" type="submit" @click="goTodetail(post.Id)">Read Story</button>
+        <p class="mt-1 mb-4"> <span  v-html="post.description"></span></p>
+    <router-link v-bind:to="{ name: 'viewhistory', params: { title:post._id}}"  class="readMore"> <button class="btn btn-primary my-2 my-sm-0 " type="submit">  Read Story</button></router-link>
+
     </div>
 </div>
 </template>
@@ -15,7 +16,6 @@ import History from '@/services/History'
 export default {
     data() {
         return {
-            proId: this.$route.params.Hid,
             posts: []
 
         }
@@ -53,10 +53,14 @@ h2 {
   font-weight: 700;
 }
 
-P {
+P.mt-1 {
 
     font-family: courier, Arial, Helvetica, sans-serif;
     font-weight:bolder;
+        overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 button {

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import ViewPost from "@/components/ViewPost.vue"
 import CustomerViewPage from '@/components/CustomerViewPage.vue'
 import addBlogPost from "@/admin/addBlogPost.vue";
 import Admin from '@/admin/Admin.vue'
@@ -15,9 +14,9 @@ import addNewArticle from "@/admin/addNewArticle.vue";
 import Events from "@/admin/Events.vue";
 import editEvent from "@/admin/editEvent.vue";
 import viewEvent from "@/components/viewEvent.vue";
-
-
-
+import viewHistory from "@/components/viewHistory.vue";
+import viewBlog from "@/components/viewBlog.vue";
+import viewPost from "@/components/viewPost.vue";
 
 
 Vue.use(VueRouter)
@@ -32,6 +31,21 @@ const routes = [
 		path: "/viewEvent/:title",
 		name: "viewevent",
 		component: viewEvent,
+	},
+	{
+		path: "/viewpost/:title",
+		name: "viewpost",
+		component: viewPost,
+	},
+	{
+		path: "/viewblog/:title",
+		name: "viewblog",
+		component: viewBlog,
+	},
+	{
+		path: "/viewhistory/:title",
+		name: "viewhistory",
+		component: viewHistory,
 	},
 	{
 		path: "/editEvent/:id",
@@ -68,11 +82,7 @@ const routes = [
 		name: "register",
 		component: Register,
 	},
-	{
-		path: "/post/:Pid",
-		name: "viewpost",
-		component: ViewPost,
-	},
+
 	{
 		path: "/login",
 		name: "login",

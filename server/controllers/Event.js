@@ -50,7 +50,7 @@ module.exports={
 
 	 getEvent(req,res){
 		console.log(req.body);
-		 Event.findById({ id: req.params.id }, (err, data) => {
+		 Event.findById(  req.params.id , (err, data) => {
 				if (!err) {
 					res.json({
 						status: "success",

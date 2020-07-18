@@ -54,7 +54,7 @@ module.exports = {
 	getHistory(req, res) {
 		console.log("--get history--");
 		console.log(req.body);
-		History.findOne({ _id: req.params.id }, (err, data) => {
+		History.findById( req.params.id, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",

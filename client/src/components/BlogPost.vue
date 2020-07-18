@@ -4,8 +4,8 @@
         <h1 class="mt-5 mb-5"> New Blog Posts</h1>
 
         <div class="row">
-            <div class="col-sm-4" v-for="(item,index) in items" :key="index">
-                <img :src="item.src">
+            <div class="col-sm-4" v-for="(item,index) in items .slice().reverse()" :key="index">
+                <img :src="item.image">
                 <p>{{item.category}}</p>
                 <h5 class="mt-3 mb-3">{{item.title}}</h5>
                 <div @click="goTodetail(item.productId)">

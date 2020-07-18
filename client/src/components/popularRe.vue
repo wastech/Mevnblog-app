@@ -4,13 +4,14 @@
   <div class="row">
     <div class="col-sm-7">
 
-      <div class="row" v-for="(item,i) in items" :key="i">
-        <div class="col-4"><img class="img2" :src="item.src">
+      <div class="row" v-for="item in items" :key="item.id">
+        <div class="col-4"><img class="img2" :src="item.image">
         </div>
         <div class="col-8">
           <p> {{item.category}}</p>
           <h5 class="mt-4 mb-4">{{item.title}}</h5>
-          <button class="btn btn-primary my-2 my-sm-0 " type="submit" @click="goTodetail(item.productId)">Read Story</button>
+            <router-link v-bind:to="{ name: 'viewpost', params: { title:item._id}}"  class="readMore"> <button class="btn btn-primary my-2 my-sm-0 " type="submit">  Read Story</button></router-link>
+
         </div>
 
       </div>
@@ -26,46 +27,20 @@
 
 <script>
 import ADS from '@/components/ADS.vue'
+import axios from 'axios'
 export default {
-  components: {
-    ADS
-  },
-  data() {
-    return {
-      items: [{
-          productId: 8,
-          src: "https://image.freepik.com/free-photo/portrait-beautiful-brunette-woman-model-pink-costume-with-no-makeup-isolated-gray_158538-12804.jpg",
-          category: "Blog Post",
-          title: "President Buhari's Easter Message To Nssssssssssssssssssigerians Amxxxxxxxxxxxxxxxxidst Coronavirus Pandemic"
-        },
-
-        {
-          productId: 9,
-          src: "https://image.freepik.com/free-photo/portrait-cheerful-young-african-man_171337-8907.jpg",
-          category: "Blog Post",
-          title: "Horror! Huge Fire Breaks Out, Razes Vehicles Inside Lagos Airport Hotel (Photos)",
-        },
-        {
-          productId: 10,
-          src: "https://image.freepik.com/free-photo/smiling-young-businessman-businesswoman-giving-high-five-front-corporate-building_23-2148190731.jpg",
-          category: "Blog Post",
-          title: "President Buhari's Easter Message To Nigerians Amidst Coronavirus Pandemics"
+  components:{ ADS},
+    data() {
+        return {
+            items:[]
         }
-
-      ]
-    }
-  },
-  methods: {
-    goTodetail(prodId) {
-      let proId = prodId
-      this.$router.push({
-        name: 'viewpost',
-        params: {
-          Pid: proId
-        }
+    },
+   created() {
+      let uri = 'http://localhost:3000/get_articles';
+      axios.get(uri).then(response => {
+        this.items = response.data.data;
       })
-    }
-  }
+    },
 }
 </script>
 

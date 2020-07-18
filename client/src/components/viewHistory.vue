@@ -23,7 +23,7 @@ import axios from 'axios'
 import Related from "@/components/Related.vue";
 import Newsletter from "@/components/Newsletter.vue";
 export default {
-  name: "viewevent",
+  name: "viewhistory",
   components: {
     Related,
     Newsletter,
@@ -36,19 +36,22 @@ export default {
     };
   },
   created() {
-     let url= `http://localhost:3000/getevent/${this.id}`;
+     let url= `http://localhost:3000/get_history/${this.id}`;
     axios.get(url).then(response => {
       this.items = response.data;
     });
+    let URL= `http://localhost:3000/get_blog/${this.id}`;
+    axios.get(URL).then(response => {
+      this.items = response.data;
+    })
 }
 }
 </script>
 
 <style scoped>
 
-
 .container {
-  margin-top: 0.5rem;
+  margin-top: 0.1rem;
 }
 
 h2 {

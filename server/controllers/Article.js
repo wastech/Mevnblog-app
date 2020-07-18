@@ -36,7 +36,7 @@ module.exports={
 
  deleteArticle(req,res){
 		console.log("--deleting todo--");
-		 Article.deleteOne({_id:req.params.id},(err,data)=>{
+		 Article.remove({_id:req.params.id},(err,data)=>{
 			if(!err){
 				res.json({
 					status:"success",
@@ -66,7 +66,8 @@ module.exports={
 			else{
 				res.json({
 					status:"fail",
-					message:"unable to delete"
+					message:"unable to get post",
+					err:err
 				})
 			}
 		})

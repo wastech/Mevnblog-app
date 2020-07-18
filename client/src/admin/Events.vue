@@ -12,8 +12,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(post,index) in posts" :key="index">
-      <th scope="row">{{ post.index + 1 }}</th>
+    <tr v-for="(post, index) in posts" :key="post.id">
+      <th scope="row">{{ index }}</th>
       <td>{{post.author}}</td>
       <td>{{post.title}}</td>
       

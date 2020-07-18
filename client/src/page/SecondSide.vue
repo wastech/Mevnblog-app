@@ -1,13 +1,14 @@
 <template>
 <div>
   <div class="">
-    <div class="row" v-for="(item,i) in items" :key="i">
+    <div class="row" v-for="item in items" :key="item._id">
       <div class="col-6">
-        <img class="img2" :src="item.src"></div>
+        <img class="img2" :src="item.image"></div>
       <div class="col-6">
         <p> {{item.category}}</p>
         <p>{{item.title}}</p>
-        <button class="btn btn-primary my-2 my-sm-0 " type="submit" @click="goTodetail(item.productId)">Read Story</button>
+           <router-link v-bind:to="{ name: 'viewblog', params: { title:item._id}}"  class="readMore"> <button class="btn btn-primary my-2 my-sm-0 " type="submit">  Read Story</button></router-link>
+
       </div>
     </div>
   </div>

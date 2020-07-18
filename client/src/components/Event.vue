@@ -7,7 +7,7 @@
                 <img :src="item.image">
                 <p>{{item.category}}</p>
                 <h5>{{item.title}}</h5>
-                <p>{{item.description}}</p>
+                
 
                
                     <router-link v-bind:to="{ name: 'viewevent', params: { title:item._id}}"  class="readMore"> <button class="btn btn-primary my-2 my-sm-0 " type="submit">  Read Story</button></router-link>
@@ -72,6 +72,7 @@ h5 {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   font-weight: 700;
+  padding: 0px;
 }
 
 button {
