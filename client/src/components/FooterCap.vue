@@ -3,7 +3,6 @@
   <section class="subscribe pb-50 pt-70">
     <div class="container">
       <div class="row">
-
         <div class="col-md-6">
           <div class=" mt-15 mb-15">
             <h1>readdy to take a test drive?</h1>
@@ -13,63 +12,63 @@
         <div class="col-md-6">
           <div class="subscribe-wrapper subscribe2-wrapper mb-15">
             <div class="subscribe-form">
-<form class="form-inline ml-4 mt-3">
-       <div class="row">
-    <div class="col-8">
-    <input class="form-control mr-sm-2" type="email" placeholder="@ enter your email" v-model="email" aria-label="@ enter your email">
-    </div>
-    <div class="col-4 ">
-      <button class="btn btn-outline-success " type="submit "  @click="addMails">submit</button>
-    </div>
-    </div>
-    </form>
+              <form class="form-inline ml-4 mt-3">
+                <div class="row">
+                  <div class="col-8">
+                    <input class="form-control mr-sm-2" type="email" placeholder="@ enter your email" v-model="email" aria-label="@ enter your email">
+                  </div>
+                  <div class="col-4 ">
+                    <button class="btn btn-outline-success " type="submit " @click="addMails">submit</button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </div>
 </template>
+
 <script>
 import Newsletter from '@/services/Newsletter'
 export default {
-    data() {
-        return {
-       email:''
-        }},
+  data() {
+    return {
+      email: ''
+    }
+  },
   methods: {
-    async addMails () {
+    async addMails() {
       await Newsletter.addMails({
         email: this.email,
-       
+
       })
-      this.$router.push({ name: 'subscriber' })
     }
   }
-    }
-    
-    
+}
 </script>
 
 <style scoped>
-h1{
+h1 {
   max-width: 80%;
   color: #fff;
   font-weight: 900;
   font-size: 3em;
 }
 
-p{
+p {
   max-width: 80%;
   color: #fff;
 
 }
+
 .container {
   max-width: 79%;
-  margin-top:5em;
+  margin-top: 5em;
 }
+
 .subscribe {
   background-image: linear-gradient(to top, black 1%, black 100%);
 }
@@ -85,45 +84,51 @@ p{
 .mb-15 {
   margin-bottom: 30px;
 }
-button{
+
+button {
   margin-left: -3rem;
   background-color: blue;
-  color:white;
+  color: white;
   width: 8em;
-   padding: 1.3em;
+  padding: 1.3em;
   border-radius: 0.7rem;
 }
-input{
+
+input {
   border-radius: 0.7rem;
   padding: 2em;
 }
+
 @media screen and (max-width: 750px) {
   .pt-70 {
-  padding-top: 15px;
-}
+    padding-top: 15px;
+  }
+
   .mb-15 {
-  margin-bottom: 10px;
-}
- h1{
+    margin-bottom: 10px;
+  }
 
-  color: #fff;
-  font-weight: 100%;
-  font-size: 2em;
-   max-width: 100%;
-}
-.container {
-  max-width: 97%;
-  margin-top:2em;
-}
-p{
-   max-width: 100%;
-}
- 
+  h1 {
+
+    color: #fff;
+    font-weight: 100%;
+    font-size: 2em;
+    max-width: 100%;
+  }
+
+  .container {
+    max-width: 97%;
+    margin-top: 2em;
+  }
+
+  p {
+    max-width: 100%;
+  }
+
   img {
-  width: 100%;
-   height: 30%;
+    width: 100%;
+    height: 30%;
 
-
-}
+  }
 }
 </style>

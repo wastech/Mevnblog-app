@@ -3,7 +3,6 @@
   <section class="subscribe-area pb-50 pt-70">
     <div class="container">
       <div class="row">
-
         <div class="col-md-4">
           <div class=" mb-15">
             <h1>JOIN OUR NEWSLETTER</h1>
@@ -20,27 +19,30 @@
               </div>
             </div>
           </div>
-          </div>
         </div>
       </div>
+    </div>
   </section>
 </div>
 </template>
+
 <script>
 import PostsService from '@/services/Newsletter'
 export default {
-  data(){
-  return {
-    email:'',
-  }
+  data() {
+    return {
+      email: '',
+    }
   },
   methods: {
-    async addpost () {
+    async addpost() {
       await PostsService.addPost({
         email: this.email,
-       
+
       })
-      this.$router.push({ name: 'post' })
+      this.$router.push({
+        name: 'post'
+      })
     }
   }
 }

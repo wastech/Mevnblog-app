@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import CustomerViewPage from '@/components/CustomerViewPage.vue'
 import addBlogPost from "@/admin/addBlogPost.vue";
 import Admin from '@/admin/Admin.vue'
 import Posts from '@/admin/Posts.vue';
@@ -17,11 +16,28 @@ import viewEvent from "@/components/viewEvent.vue";
 import viewHistory from "@/components/viewHistory.vue";
 import viewBlog from "@/components/viewBlog.vue";
 import viewPost from "@/components/viewPost.vue";
-
+import Article from "@/page/Article.vue"
+import Eventpage from "@/page/Eventpage.vue";
+import Customerpage from "@/page/Customerpage.vue";
 
 Vue.use(VueRouter)
 
 const routes = [
+	{
+		path: "/customer-stories",
+		name: "viewcustomer",
+		component: Customerpage,
+	},
+	{
+		path: "/events",
+		name: "events",
+		component: Eventpage,
+	},
+	{
+		path: "/articles",
+		name: "article",
+		component: Article,
+	},
 	{
 		path: "/subscribers",
 		name: "subscriber",
@@ -92,11 +108,6 @@ const routes = [
 		path: "/posts",
 		name: "posts",
 		component: Posts,
-	},
-	{
-		path: "/customer/:Hid",
-		name: "customer",
-		component: CustomerViewPage,
 	},
 	{
 		path: "/addnewpost",

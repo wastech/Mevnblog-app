@@ -3,16 +3,12 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12" v-for="item in items" :key="item.id">
-       
-          <h2>{{ item.title }}</h2>
-          <img :src="item.image" >
-          <h5>{{ item.category }}</h5>
-         <p v-html="item.description"></p>
-        
-       
+        <h2>{{ item.title }}</h2>
+        <img :src="item.image">
+        <h5>{{ item.category }}</h5>
+        <p v-html="item.description"></p>
       </div>
     </div>
-
     <Related />
   </div>
 </div>
@@ -31,22 +27,21 @@ export default {
   data() {
     return {
 
-      items:{},
-       id:this.$route.params.title,
+      items: {},
+      id: this.$route.params.title,
     };
   },
   created() {
-     let url= `http://localhost:3000/get_blog/${this.id}`;
+    let url = `http://localhost:3000/get_blog/${this.id}`;
     axios.get(url).then(response => {
       this.items = response.data;
     });
-    
-}
+
+  }
 }
 </script>
 
 <style scoped>
-
 .container {
   margin-top: 0.1rem;
 }
@@ -54,17 +49,25 @@ export default {
 h2 {
   text-align: center;
   text-transform: uppercase;
-  font-size: 2rem;
-  margin: 1rem;
-  font-weight: bolder;
+  font-size: 2em;
+  margin: .67em 0;
   font-family: serif;
+  line-height: 171.9%;
+  letter-spacing: .03em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 p {
- 
- 
-    overflow-wrap: break-word;
 
+  overflow-wrap: break-word;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !important;
+  padding: 0;
+  letter-spacing: .03em !important;
+  overflow-x: hidden !important;
 
 }
 
