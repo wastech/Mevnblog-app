@@ -41,9 +41,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin-top: 0.1rem;
-}
 
 h2 {
   text-align: center;

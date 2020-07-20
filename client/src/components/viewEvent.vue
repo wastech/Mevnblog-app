@@ -1,8 +1,8 @@
 <template>
-<div>
+
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12" v-for="item in items" :key="item.id">
+    <div >
+      <div v-for="item in items" :key="item.id">
         <h2>{{ item.title }}</h2>
         <img :src="item.image">
         <h5>{{ item.category }}</h5>
@@ -12,7 +12,7 @@
 
     <Related />
   </div>
-</div>
+
 </template>
 
 <script>
@@ -42,9 +42,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin-top: 0.5rem;
-}
 
 h2 {
   text-align: center;

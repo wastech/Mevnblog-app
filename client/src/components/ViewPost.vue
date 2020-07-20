@@ -42,15 +42,11 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin-top: 0.1rem;
-}
 
 h2 {
   text-align: center;
   text-transform: uppercase;
   font-size: 2em;
-  margin: .67em 0;
   font-family: serif;
   line-height: 171.9%;
   letter-spacing: .03em;
