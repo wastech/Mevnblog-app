@@ -1,9 +1,11 @@
 const Blog = require("../models/Blogpost");
+var sanitize = require("sanitize-html");
 
 module.exports = {
 	saveBlog(req, res) {
-		console.log("--save article--");
-		Blog.create(req.body, (err, data) => {
+		const blog = req.body;
+		  blog.description = sanitize(blog.description);
+		Blog.create(blog, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",
@@ -14,7 +16,6 @@ module.exports = {
 		});
 	},
 	getBlogs(req, res) {
-		console.log("--getting articles--");
 		Blog.find({})
 			.sort("-date")
 			.exec((err, data) => {
@@ -35,7 +36,6 @@ module.exports = {
 	},
 
 	deleteBlog(req, res) {
-		console.log("--deleting todo--");
 		Blog.deleteOne({ _id: req.params.id }, (err, data) => {
 			if (!err) {
 				res.json({
@@ -52,7 +52,6 @@ module.exports = {
 	},
 
 	getBlog(req, res) {
-		console.log("--get article--");
 		console.log(req.body);
 		Blog.findOne({ _id: req.params.id }, (err, data) => {
 			if (!err) {
@@ -71,7 +70,6 @@ module.exports = {
 	},
 
 	updateBlog(req, res) {
-		console.log("---updating todo----");
 		Blog.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
 			if (err) {
 				res.json({
@@ -88,9 +86,6 @@ module.exports = {
 	},
 
 	getBlogByCategory(req, res) {
-		console.log("--get category--");
-		console.log(req.body);
-
 		Blog.find({ category: req.query.category }, (err, data) => {
 			if (!err) {
 				res.json({

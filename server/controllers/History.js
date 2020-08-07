@@ -1,9 +1,11 @@
 const History = require("../models/historymodel");
+var sanitize = require("sanitize-html");
 
 module.exports = {
 	saveHistory(req, res) {
-		console.log("--save history--");
-		History.create(req.body, (err, data) => {
+		const history = req.body;
+	  history.description = sanitize(history.description);
+		History.create(history, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",
@@ -14,7 +16,6 @@ module.exports = {
 		});
 	},
 	getHistories(req, res) {
-		console.log("--getting histories--");
 		History.find({})
 			.sort("-date")
 			.exec((err, data) => {
@@ -35,7 +36,6 @@ module.exports = {
 	},
 
 	deleteHistory(req, res) {
-		console.log("--deleting todo--");
 		History.deleteOne({ _id: req.params.id }, (err, data) => {
 			if (!err) {
 				res.json({
@@ -52,8 +52,6 @@ module.exports = {
 	},
 
 	getHistory(req, res) {
-		console.log("--get history--");
-		console.log(req.body);
 		History.findById( req.params.id, (err, data) => {
 			if (!err) {
 				res.json({
@@ -71,7 +69,6 @@ module.exports = {
 	},
 
 	updateHistory(req, res) {
-		console.log("---updating todo----");
 		History.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
 			if (err) {
 				res.json({
@@ -88,9 +85,6 @@ module.exports = {
 	},
 
 	getHistoryByCategory(req, res) {
-		console.log("--get category--");
-		console.log(req.body);
-
 		History.find({ category: req.query.category }, (err, data) => {
 			if (!err) {
 				res.json({

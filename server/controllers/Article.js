@@ -1,37 +1,39 @@
 const Article=require('../models/Article');
+var sanitize = require("sanitize-html");
 
 module.exports={
 	 saveArticle(req,res){
-		console.log("--save article--");
-		 Article.create(req.body,(err,data)=>
-		{
-			if(!err){
-				res.json({
-					status:"success",
-					message:"article created successfully",
-					data:data
-				});
-			}
-		})
+		 const article = req.body
+				   article.description = sanitize(article.description);
+		 Article.create(article, (err, data) => {
+				if (!err) {
+					res.json({
+						status: "success",
+						message: "article created successfully",
+						data: data,
+					});
+				}
+			});
 	},
 	 getArticles(req,res){
-		console.log("--getting articles--");
-		 Article.find({}).sort('-date').exec((err,data)=>{
-				if(!err){
-					res.json({
-						status:"success",
-						message:"articles fetched successfully",
-						data:data
-					})
-							console.log(req.body);
-				}
-				else{
-					res.json({
-						status:"fail",
-						message:"something went wrong"
-					})
-				}
-		})
+		 Article.find({})
+				.sort("-date")
+				.limit(10)
+				 .exec((err, data) => {
+					if (!err) {
+						res.json({
+							status: "success",
+							message: "articles fetched successfully",
+							data: data,
+						});
+						console.log(req.body);
+					} else {
+						res.json({
+							status: "fail",
+							message: "something went wrong",
+						});
+					}
+				});
 	},
 
  deleteArticle(req,res){
@@ -53,8 +55,6 @@ module.exports={
 	},
 
 	 getArticle(req,res){
-		console.log("--get article--");
-		console.log(req.body);
 		 Article.findOne({_id:req.params.id},(err,data)=>{
 			if(!err){
 				res.json({
@@ -75,7 +75,6 @@ module.exports={
 
 
 	 updateArticle(req,res){
-		console.log("---updating todo----");
 		 Article.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
 			if (err) {
 				res.json({
@@ -91,10 +90,7 @@ module.exports={
 		});
 	},
 
-	 getArticleByCategory(req,res){
-		console.log("--get category--");
-		console.log(req.body);
-		 
+	 getArticleByCategory(req,res){		 
 	 Article.find({ category: req.query.category }, (err, data) => {
 			if (!err) {
 				res.json({

@@ -1,8 +1,10 @@
 const Event= require('../models/eventmodel');
-
+var sanitize = require("sanitize-html");
 module.exports={
 	 saveEvent(req,res){
-		 Event.create(req.body, (err, data) => {
+		 const event = req.body
+		   event.description = sanitize(event.description);
+		 Event.create(event, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",
@@ -13,7 +15,6 @@ module.exports={
 		});
 	},
 	 getEvents(req,res){
-		console.log(res.body)
 	 Event.find({})
 			.sort("-date")
 			.exec((err, data) => {
