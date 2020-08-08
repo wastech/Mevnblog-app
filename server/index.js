@@ -23,7 +23,7 @@ app.use('/api/blogpost',blogpost);
 
 
 mongoose
-	.connect("mongodb://localhost/blogpost", {
+	.connect("mongodb+srv://cluster0.xwtti.mongodb.net/wastech" , {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
