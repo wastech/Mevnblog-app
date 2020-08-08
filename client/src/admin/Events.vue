@@ -44,7 +44,7 @@ export default {
     }
   },
    created() {
-      let uri = 'http://localhost:3000/events';
+      let uri = 'api/eventroute/events';
       axios.get(uri).then(response => {
         this.posts = response.data.data;
       })
@@ -52,7 +52,7 @@ export default {
    methods: {
       deletePost(id)
       {
-        let uri = `http://localhost:3000/deleteevent/${id}`;
+        let uri = `api/eventroute/deleteevent/${id}`;
         axios.delete(uri).then(response => {
           this.posts.splice(this.posts.indexOf(id), 1);
         });

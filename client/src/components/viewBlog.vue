@@ -27,13 +27,13 @@ export default {
   data() {
     return {
 
-      items: {},
-      id: this.$route.params.title,
+      items: [],
+      id: this.$route.params.title
     };
   },
   created() {
-    let url = `http://localhost:3000/get_blog/${this.id}`;
-    axios.get(url).then(response => {
+    let url = `/api/blogpost/get_blog/${this.id}`;
+    axios.get(url).then((response) => {
       this.items = response.data;
     });
 

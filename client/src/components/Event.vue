@@ -23,7 +23,7 @@ export default {
     }
   },
   created() {
-    let uri = 'http://localhost:3000/events';
+    let uri = 'api/eventroute/events';
     axios.get(uri).then(response => {
       this.items = response.data.data;
     })

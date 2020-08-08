@@ -32,19 +32,20 @@
 </template>
 
 <script>
-import Newsletter from '@/services/Newsletter'
+import axios from 'axios'
 export default {
   data() {
     return {
-      email: ''
+      email: '',
     }
   },
   methods: {
-    async addMails() {
-      await Newsletter.addMails({
-        email: this.email,
-
+     addMails() {
+     let url = 'api/Newsroute/mail'
+      axios.post(uri, this.email).then((Response)=> {
+        console.log(response)
       })
+      
     }
   }
 }

@@ -15,19 +15,19 @@
 </template>
 
 <script>
-import History from '@/services/History'
+import axios from 'axios'
 export default {
   data() {
     return {
       customers: []
-
     }
-
   },
-  async created() {
-    const response = await History.fetchPosts(this.customers)
-    this.customers = response.data.data
-  }
+  created() {
+    let uri = 'api/history/get_histories';
+    axios.get(uri).then(response => {
+      this.customers = response.data.data;
+    })
+  },
 }
 </script>
 

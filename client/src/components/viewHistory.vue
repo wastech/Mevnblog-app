@@ -32,7 +32,7 @@ export default {
     };
   },
   created() {
-    let url = `http://localhost:3000/get_history/${this.id}`;
+    let url = `api/history/get_history/${this.id}`;
     axios.get(url).then(response => {
       this.items = response.data;
     });

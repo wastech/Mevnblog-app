@@ -48,7 +48,7 @@ export default {
         
         }},
       created() {
-        let uri = `http://localhost:3000/getevent/${this.$route.params.id}`;
+        let uri = `api/eventroute/getevent/${this.$route.params.id}`;
         axios.get(uri).then((response) => {
             this.posts = response.data.data;
             console.log(this.posts)
@@ -56,7 +56,7 @@ export default {
       },
        methods: {
         updatePost() {
-          let uri = `http://localhost:3000/updateevent/${this.$route.params.id}`;
+          let uri = `api/eventroute/updateevent/${this.$route.params.id}`;
           axios.post(uri, this.posts).then(() => {
             this.$router.push({name: 'event'});
           });

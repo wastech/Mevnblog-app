@@ -44,7 +44,7 @@ export default {
     }
   },
   created() {
-    let uri = 'http://localhost:3000/get_articles';
+    let uri = 'api/article/get_articles';
     axios.get(uri).then(response => {
       this.articles = response.data.data;
     })

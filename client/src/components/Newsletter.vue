@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import PostsService from '@/services/Newsletter'
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -35,14 +35,12 @@ export default {
     }
   },
   methods: {
-    async addpost() {
-      await PostsService.addPost({
-        email: this.email,
-
+     addpost() {
+     let url = 'api/Newsroute/mail'
+      axios.post(uri, this.email).then((Response)=> {
+        console.log(response)
       })
-      this.$router.push({
-        name: 'post'
-      })
+      
     }
   }
 }

@@ -11,21 +11,19 @@
 </template>
 
 <script>
-import History from '@/services/History'
+import axios from 'axios'
 export default {
   data() {
     return {
       posts: []
-
     }
-
   },
-  async created() {
-    const response = await History.fetchPosts(this.posts)
-    this.posts = response.data.data
-    console.log(response.data.data)
-    // this.$router.push({ name: 'posts' })
-  }
+  created() {
+    let uri = 'api/history/get_histories';
+    axios.get(uri).then(response => {
+      this.posts = response.data.data;
+    })
+  },
 }
 </script>
 

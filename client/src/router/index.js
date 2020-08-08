@@ -12,10 +12,10 @@ import AddHistory from "@/admin/AddHistory.vue";
 import addNewArticle from "@/admin/addNewArticle.vue";
 import Events from "@/admin/Events.vue";
 import editEvent from "@/admin/editEvent.vue";
+import viewPost from "@/components/viewPost.vue"
 import viewEvent from "@/components/viewEvent.vue";
 import viewHistory from "@/components/viewHistory.vue";
 import viewBlog from "@/components/viewBlog.vue";
-import viewPost from "@/components/viewPost.vue";
 import Article from "@/page/Article.vue"
 import Eventpage from "@/page/Eventpage.vue";
 import Customerpage from "@/page/Customerpage.vue";
@@ -44,25 +44,26 @@ const routes = [
 		component: Subscribers,
 	},
 	{
-		path: "/viewEvent/:title",
+		path: "/:title",
 		name: "viewevent",
 		component: viewEvent,
 	},
 	{
-		path: "/viewpost/:title",
-		name: "viewpost",
-		component: viewPost,
-	},
-	{
-		path: "/viewblog/:title",
+		path: "/:title",
 		name: "viewblog",
 		component: viewBlog,
 	},
 	{
-		path: "/viewhistory/:title",
+		path: "/:title",
 		name: "viewhistory",
 		component: viewHistory,
 	},
+	{
+		path: "/:title",
+		name: "viewpost",
+		component: viewPost,
+	},
+	
 	{
 		path: "/editEvent/:id",
 		name: "editEvent",
@@ -75,7 +76,7 @@ const routes = [
 	},
 	{
 		path: "/addarticle",
-		name: "article",
+		name: "addarticle",
 		component: addNewArticle,
 	},
 	{

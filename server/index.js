@@ -39,7 +39,7 @@ mongoose
 
 //handle production 
 
-if(process.env.NODE.ENV === 'production'){
+if(process.env.NODE_ENV === 'production'){
 	//static folder
 
 	app.use(express.static(__dirname + '/public/'));

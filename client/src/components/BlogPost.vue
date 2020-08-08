@@ -23,7 +23,7 @@ export default {
     }
   },
   created() {
-    let uri = 'http://localhost:3000/get_blogs';
+    let uri = 'api/blogpost/get_blogs';
     axios.get(uri).then(response => {
       this.items = response.data.data;
     })

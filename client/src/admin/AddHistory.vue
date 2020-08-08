@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import History from '@/services/History'
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -55,13 +55,16 @@ export default {
         }
         }},
          methods: {
-    async addPost () {
-      const response =  await History.addPost(this.posts)
-      this.posts = response.data.data
-     console.log(response.data.data)
-    // this.$router.push({ name: 'posts' })
-    }
-  }
+    addPost() {
+      let url = "api/history/save_history";
+      axios.post(url, this.posts)
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }}
     }
     
 </script>

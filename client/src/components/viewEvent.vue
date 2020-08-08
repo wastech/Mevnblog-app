@@ -33,8 +33,8 @@ export default {
     };
   },
   created() {
-    let url = `http://localhost:3000/getevent/${this.id}`;
-    axios.get(url).then(response => {
+    let url = `api/eventroute/getevent/${this.id}`;
+    axios.get(url).then((response) => {
       this.items = response.data;
     });
   }

@@ -33,7 +33,7 @@ export default {
     }
   },
    created() {
-      let uri = 'http://localhost:3000/mails';
+      let uri = 'api/Newsroute/mails';
       axios.get(uri).then(response => {
         this.items = response.data.data;
       })
