@@ -38,9 +38,7 @@ import axios from 'axios'
 export default {
   data(){
     return{
-   posts: [
-     {title:'', author:'', category:''}
-   ]
+   posts: []
     }
   },
    created() {

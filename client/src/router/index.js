@@ -23,51 +23,11 @@ import Customerpage from "@/page/Customerpage.vue";
 Vue.use(VueRouter)
 
 const routes = [
-	{
-		path: "/customer-stories",
-		name: "viewcustomer",
-		component: Customerpage,
-	},
-	{
-		path: "/events",
-		name: "events",
-		component: Eventpage,
-	},
-	{
-		path: "/articles",
-		name: "article",
-		component: Article,
-	},
-	{
-		path: "/subscribers",
-		name: "subscriber",
-		component: Subscribers,
-	},
-	{
-		path: "/:title",
-		name: "viewevent",
-		component: viewEvent,
-	},
-	{
-		path: "/:title",
-		name: "viewblog",
-		component: viewBlog,
-	},
-	{
-		path: "/:title",
-		name: "viewhistory",
-		component: viewHistory,
-	},
-	{
-		path: "/:title",
-		name: "viewpost",
-		component: viewPost,
-	},
 	
 	{
-		path: "/editEvent/:id",
-		name: "editEvent",
-		component: editEvent,
+		path: "/admin",
+		name: "admin",
+		component: Admin,
 	},
 	{
 		path: "/events",
@@ -83,11 +43,6 @@ const routes = [
 		path: "/addHistory",
 		name: "AddHistory",
 		component: AddHistory,
-	},
-	{
-		path: "/addNewEvent",
-		name: "AddNewEvent",
-		component: AddNewEvent,
 	},
 	{
 		path: "/",
@@ -116,10 +71,57 @@ const routes = [
 		component: addBlogPost,
 	},
 	{
-		path: "/admin",
-		name: "admin",
-		component: Admin,
+		path: "/customer-stories",
+		name: "viewcustomer",
+		component: Customerpage,
 	},
+	{
+		path: "/events",
+		name: "events",
+		component: Eventpage,
+	},
+	{
+		path: "/addNEWEvent",
+		name: "AddNewEvent",
+		component: AddNewEvent,
+	},
+	{
+		path: "/articles",
+		name: "article",
+		component: Article,
+	},
+	{
+		path: "/subscribers",
+		name: "subscriber",
+		component: Subscribers,
+	},
+	{
+		path: "/event/:title",
+		name: "viewevent",
+		component: viewEvent,
+	},
+	{
+		path: "/blog/:title",
+		name: "viewblog",
+		component: viewBlog,
+	},
+	{
+		path: "/history/:title",
+		name: "viewhistory",
+		component: viewHistory,
+	},
+	{
+		path: "/article/:title",
+		name: "viewpost",
+		component: viewPost,
+	},
+	
+	{
+		path: "/editEvent/:id",
+		name: "editEvent",
+		component: editEvent,
+	}
+	
 ];
 
 const router = new VueRouter({

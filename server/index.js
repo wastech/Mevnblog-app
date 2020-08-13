@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors');
-const articles = require('./routes/api/article')
-const eventroutes = require("./routes/api/eventroute");
-const Newsroutes = require("./routes/api/newsletter");
-const history = require("./routes/api/history");
-const blogpost = require("./routes/api/blogpost");
+const articles = require('./routes/article')
+const eventroutes = require("./routes/eventroute");
+const Newsroutes = require("./routes/newsletter");
+const history = require("./routes/history");
+const blogpost = require("./routes/blogpost");
 
 
 const app = express()
@@ -23,7 +23,7 @@ app.use('/api/blogpost',blogpost);
 
 
 mongoose
-	.connect("mongodb+srv://cluster0.xwtti.mongodb.net/wastech" , {
+	.connect("mongodb+srv://AbdulfataiAbdulwasiu:WASiu369@cluster0.jxb39.mongodb.net/AbdulfataiAbdulwasiu?retryWrites=true&w=majority" , {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,

@@ -30,7 +30,7 @@
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="enter you email...." aria-label="Search">
-        <button class="btn btn-primary my-2 my-sm-0 " type="submit">Subscribe</button>
+        <button class="btn btn-primary my-2 my-sm-0 " type="submit"><router-link to="/admin">Subscribe</router-link></button>
       </form>
     </div>
   </nav>

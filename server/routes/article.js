@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const ArticleController = require("../../controllers/Article");
+const ArticleController = require("../controllers/Article");
 
 router.post("/save_article", ArticleController.saveArticle);
 router.get("/get_articles", ArticleController.getArticles);

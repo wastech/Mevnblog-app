@@ -62,20 +62,13 @@ import axios from "axios";
 export default {
   data() {
     return {
-      posts: {
-        author: "",
-        title: "",
-        category: "",
-        image: "",
-        description: ""
-      }
+      posts: [],
     };
   },
   methods: {
     addPost() {
-      let url = "api/eventroute/event";
-      axios
-        .post(url, this.posts)
+      let url = "api/eventroute/event/";
+      axios.post(url, this.posts)
         .then(function(response) {
           console.log(response);
         })

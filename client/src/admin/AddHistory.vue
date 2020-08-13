@@ -44,15 +44,7 @@ export default {
     data() {
         return {
             
-	      posts : {
-          author : '',
-          title: '',
-          category:'',
-          image: '',
-          description:''
-
-          
-        }
+	      posts : [],
         }},
          methods: {
     addPost() {
