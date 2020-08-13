@@ -5,7 +5,8 @@ module.exports = {
     devServer: {
       proxy: {
         '/api': {
-          target: 'https://mevnblog.herokuapp.com'
+          target: 'http://localhost:3000',
+          "secure": false
         }
       }
     }

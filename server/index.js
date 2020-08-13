@@ -8,6 +8,7 @@ const eventroutes = require("./routes/eventroute");
 const Newsroutes = require("./routes/newsletter");
 const history = require("./routes/history");
 const blogpost = require("./routes/blogpost");
+const dotenv = require('dotenv')
 
 
 const app = express()
@@ -21,9 +22,10 @@ app.use('/api/Newsroute',Newsroutes);
 app.use('/api/history',history)
 app.use('/api/blogpost',blogpost);
 
+// load env
+dotenv.config({path: './config.env'});
 
-mongoose
-	.connect("mongodb+srv://AbdulfataiAbdulwasiu:WASiu369@cluster0.jxb39.mongodb.net/AbdulfataiAbdulwasiu?retryWrites=true&w=majority" , {
+mongoose.connect(process.env.MONGO_URL , {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
@@ -47,5 +49,5 @@ if(process.env.NODE_ENV === 'production'){
 
 app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
 
-const port = process.env.PORT || 3000
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+const port = process.env.PORT || 8000
+ app.listen(port, () => console.log(`server runnig in ${process.env.NODE_ENV} mode on port ${port}`))
