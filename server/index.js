@@ -1,3 +1,4 @@
+const compression = require('compression')
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
@@ -12,10 +13,11 @@ const dotenv = require('dotenv')
 
 
 const app = express()
+app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 app.use('/api/article', articles)
 app.use('/api/eventroute',eventroutes);
 app.use('/api/Newsroute',Newsroutes);

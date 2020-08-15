@@ -31,4 +31,11 @@ export default {
   margin-top: 2rem;
 
 }
+@media screen and (max-width: 750px) {
+ .container {
+  max-width: 95%;
+  margin-top: 2rem;
+
+}
+}
 </style>

@@ -1,9 +1,9 @@
 <template>
-<div class="main">
-  <div class="text">
-    <h3>ADS goes here</h3>
+  <div class="main">
+    <div class="text">
+      <h3>ADS goes here</h3>
+    </div>
   </div>
-</div>
 </template>
 
 <style scoped>
@@ -23,10 +23,7 @@ h3 {
 
 @media screen and (max-width: 750px) {
   .main {
-    width: 100%;
-    height: 10rem;
-    background-color: blue;
-    border-radius: 2rem;
+    display: none;
   }
 }
 </style>

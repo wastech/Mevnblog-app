@@ -1,34 +1,39 @@
 <template>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3" v-for="customer in customers.slice().reverse()" :key="customer._id">
-      <div class="card mt-3">
-        <img :src="customer.image" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h3 class="card-title">{{customer.title}}</h3>
-          <router-link v-bind:to="{ name: 'viewhistory', params: { title:customer._id}}" class="readMore"> <button class="btn btn-primary my-2 my-sm-0 " type="submit"> Read Story</button></router-link>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3" v-for="customer in customers.slice().reverse()" :key="customer._id">
+        <div class="card mt-3">
+          <img v-lazy="customer.image" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h3 class="card-title">{{customer.title}}</h3>
+            <router-link
+              v-bind:to="{ name: 'viewhistory', params: { title:customer._id}}"
+              class="readMore"
+            >
+              <button class="btn btn-primary my-2 my-sm-0" type="submit">continue reading...</button>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
-      customers: []
-    }
+      customers: [],
+    };
   },
   created() {
-    let uri = 'api/history/get_histories';
-    axios.get(uri).then(response => {
+    let uri = "api/history/get_histories";
+    axios.get(uri).then((response) => {
       this.customers = response.data.data;
-    })
+    });
   },
-}
+};
 </script>
 
 <style scoped>
@@ -48,8 +53,9 @@ h3 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 1.5em;
-  margin: .67em 0;
-  font-weight: 400 !important;
+  text-align: center;
+  font-size: large;
+  font-family: "Kelly Slab", cursive;
+  font-weight: bolder !important;
 }
 </style>

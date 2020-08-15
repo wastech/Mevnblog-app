@@ -1,24 +1,24 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import addBlogPost from "@/admin/addBlogPost.vue";
-import Admin from '@/admin/Admin.vue'
-import Posts from '@/admin/Posts.vue';
-import Login from "@/admin/Login.vue";
-import Register from "@/admin/Register.vue";
-import Subscribers from "@/admin/Subscribers.vue";
-import AddNewEvent from "@/admin/AddNewEvent.vue";
-import AddHistory from "@/admin/AddHistory.vue";
-import addNewArticle from "@/admin/addNewArticle.vue";
-import Events from "@/admin/Events.vue";
-import editEvent from "@/admin/editEvent.vue";
-import viewPost from "@/components/viewPost.vue"
-import viewEvent from "@/components/viewEvent.vue";
-import viewHistory from "@/components/viewHistory.vue";
-import viewBlog from "@/components/viewBlog.vue";
-import Article from "@/page/Article.vue"
-import Eventpage from "@/page/Eventpage.vue";
-import Customerpage from "@/page/Customerpage.vue";
+const Home = () => import('../views/Home.vue');
+const addBlogPost = () => import('@/admin/addBlogPost.vue');
+const Admin = () => import('@/admin/Admin.vue');
+const Posts = () => import('@/admin/Posts.vue');
+const Login = () => import('@/admin/Login.vue');
+const Register = () => import('@/admin/Register.vue');
+const Subscribers = () => import('@/admin/Subscribers.vue');
+const AddNewEvent = () => import('@/admin/AddNewEvent.vue');
+const AddHistory = () => import('@/admin/AddHistory.vue');
+const addNewArticle = () => import('@/admin/addNewArticle.vue');
+const Events = () => import('@/admin/Events.vue');
+const editEvent = () => import('@/admin/editEvent.vue');
+const viewPost = () => import('@/components/viewPost.vue');
+const viewEvent = () => import('@/components/viewEvent.vue');
+const viewHistory = () => import('@/components/viewHistory.vue');
+const viewBlog = () => import('@/components/viewBlog.vue');
+const Article = () => import('@/page/Article.vue');
+const Eventpage = () => import('@/page/Eventpage.vue');
+const Customerpage = () => import('@/page/Customerpage.vue');
 
 Vue.use(VueRouter)
 
@@ -76,12 +76,12 @@ const routes = [
 		component: Customerpage,
 	},
 	{
-		path: "/events",
-		name: "events",
+		path: "/eventpage",
+		name: "eventpage",
 		component: Eventpage,
 	},
 	{
-		path: "/addNEWEvent",
+		path: "/addNewEvent",
 		name: "AddNewEvent",
 		component: AddNewEvent,
 	},

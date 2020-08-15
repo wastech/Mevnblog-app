@@ -8,7 +8,7 @@ const articleSchema = new Schema({
 	description: { type: "String" },
 	image: { type: "String" },
 	category: { type: "String" },
-	date: { type: "Date", default: Date.now },
+	createdAt: { type: "Date", default: Date.now },
 });
 
 module.exports = mongoose.model("Article", articleSchema);

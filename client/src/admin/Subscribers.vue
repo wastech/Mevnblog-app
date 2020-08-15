@@ -33,17 +33,17 @@ export default {
     }
   },
    created() {
-      let uri = 'api/Newsroute/mails';
+      let uri = '/api/Newsroute/mails';
       axios.get(uri).then(response => {
-        this.items = response.data.data;
+        this.items = response.data;
       })
     },
 
    methods: {
       deletePost(id)
       {
-        let uri = `http://localhost:3000/deletemail/${id}`;
-        axios.delete(uri).then(response => {
+        let uri = `/api/newsroute/deletemail/${id}`;
+        axios.delete(uri).then((response) => {
           this.items.splice(this.items.indexOf(id), 1);
         });
       }

@@ -1,30 +1,34 @@
 <template>
-<div class="main">
-  <div v-for="post  in posts .slice(0,1).reverse()" :key="post._id">
-    <img :src="post.image">
-    <h5>{{post.category}}</h5>
-    <h2>{{post.title}}</h2>
-    <p class="mt-1 mb-4"> <span v-html="post.description"></span></p>
-    <router-link v-bind:to="{ name: 'viewhistory', params: { title:post._id}}" class="readMore"> <button class="btn btn-primary my-2 my-sm-0 " type="submit"> Read Story</button></router-link>
+  <div class="main">
+    <div v-for="post  in posts.slice(0,1).reverse()" :key="post._id">
+      <img :src="post.image" />
+      <h5>{{post.category}}</h5>
+      <h1>{{post.title}}</h1>
+      <p class="mt-1 mb-4">
+        <span v-html="post.description"></span>
+      </p>
+      <router-link v-bind:to="{ name: 'viewhistory', params: { title:post._id}}" class="readMore">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Read Story</button>
+      </router-link>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
-      posts: []
-    }
+      posts: [],
+    };
   },
   created() {
-    let uri = 'api/history/get_histories';
-    axios.get(uri).then(response => {
+    let uri = "api/history/get_histories";
+    axios.get(uri).then((response) => {
       this.posts = response.data.data;
-    })
+    });
   },
-}
+};
 </script>
 
 <style scoped>
@@ -32,6 +36,7 @@ h5 {
   color: blue;
   text-align: left;
   margin-top: 1rem;
+  font-family: "Kelly Slab", cursive;
 }
 
 img {
@@ -40,22 +45,20 @@ img {
   object-fit: cover;
 }
 
-h2 {
-
+h1 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 2em;
-  margin: .67em 0;
+  font-weight: 3em;
+  margin: 0.67em 0;
   font-weight: 400 !important;
-
+  font-family: "Kelly Slab", cursive;
 }
 
 P.mt-1 {
-
-  font-family: Poppins, sans-serif !important;
-  letter-spacing: .3px;
+  font-family: "Kelly Slab", cursive;
+  letter-spacing: 0.3px;
   font-size: 30px;
   line-height: 180%;
   margin-top: 0;
@@ -68,7 +71,6 @@ P.mt-1 {
 
 button {
   border-radius: 0.7rem;
-
 }
 
 @media screen and (max-width: 750px) {
@@ -80,12 +82,26 @@ button {
   button {
     border-radius: 0.7rem;
     margin-top: -1rem;
-
   }
 
-  h4 {
-    font-size: 1.3rem;
-    font-weight: bolder;
+  h1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: medium;
+    font-family: "Kelly Slab", cursive;
+    font-weight: bolder !important;
+  }
+  P.mt-1 {
+    display: none;
+  }
+  h5 {
+    color: blue;
+    text-align: left;
+    font-size: small;
+    margin-top: 1rem;
+    font-family: "Kelly Slab", cursive;
   }
 }
 </style>

@@ -10,7 +10,7 @@
               type="text"
               class="form-control"
               aria-describedby="textHelp"
-              v-model="posts.author"
+              v-model="post.author"
               placeholder="author name"
             />
           </div>
@@ -20,7 +20,7 @@
               type="text"
               class="form-control"
               placeholder="title goes here"
-              v-model="posts.title"
+              v-model="post.title"
             />
           </div>
 
@@ -30,7 +30,7 @@
               type="text"
               class="form-control"
               placeholder="category of the post"
-              v-model="posts.category"
+              v-model="post.category"
             />
           </div>
 
@@ -41,11 +41,11 @@
               class="form-control-file"
               id="exampleInputFile"
               aria-describedby="fileHelp"
-              v-model="posts.image"
+              v-model="post.image"
             />
             <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>-->
           </div>
-          <wysiwyg v-model="posts.description" />
+          <wysiwyg v-model="post.description" />
           <button
             type="button"
             class="btn btn-primary btn-lg btn-block mt-5"
@@ -62,13 +62,13 @@ import axios from "axios";
 export default {
   data() {
     return {
-      posts: [],
+      post:{},
     };
   },
   methods: {
     addPost() {
       let url = "api/eventroute/event/";
-      axios.post(url, this.posts)
+      axios.post(url, this.post)
         .then(function(response) {
           console.log(response);
         })

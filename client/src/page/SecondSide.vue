@@ -1,34 +1,37 @@
 <template>
-<div>
-  <div class="">
-    <div class="row" v-for="item in items.slice(0,5)" :key="item._id">
-      <div class="col-6">
-        <img class="img2" :src="item.image"></div>
-      <div class="col-6">
-        <h5> {{item.category}}</h5>
-        <h3>{{item.title}}</h3>
-        <router-link v-bind:to="{ name: 'viewblog', params: { title:item._id}}" class="readMore"> <button class="btn btn-primary my-2 my-sm-0 " type="submit"> Read Story</button></router-link>
+  <div>
+    <div class>
+      <div class="row" v-for="item in items.slice(0,5)" :key="item._id">
+        <div class="col-6">
+          <img class="img2" :src="item.image" />
+        </div>
+        <div class="col-6 left">
+          <h5>{{item.category}}</h5>
+          <h3>{{item.title}}</h3>
+          <router-link v-bind:to="{ name: 'viewblog', params: { title:item._id}}" class="readMore">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">continue...</button>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
-      items: []
-    }
+      items: [],
+    };
   },
   created() {
-    let uri = 'api/blogpost/get_blogs';
-    axios.get(uri).then(response => {
+    let uri = "api/blogpost/get_blogs";
+    axios.get(uri).then((response) => {
       this.items = response.data.data;
-    })
+    });
   },
-}
+};
 </script>
 
 <style scoped>
@@ -45,6 +48,7 @@ img.img2 {
 
 h5 {
   color: gold;
+  font-family: "Kelly Slab", cursive;
 }
 
 .clearfix::after {
@@ -59,7 +63,8 @@ h3 {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   font-size: 1.5em;
-  margin: .67em 0;
+  font-family: "Kelly Slab", cursive;
+  margin: 0.67em 0;
   font-weight: 400 !important;
   max-width: 100%;
 }
@@ -68,5 +73,34 @@ h3 {
   float: left;
   margin-right: 10px;
   height: 30%;
+}
+@media screen and (max-width: 750px) {
+  h5{
+    font-size:small;
+  }
+
+  h3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  font-family: "Kelly Slab", cursive;
+  font-size: 0.9em;
+  max-width: 100%;
+}
+.img2 {
+  float: left;
+  margin-right:0;
+  height: 30%;
+}
+img.img2 {
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+button.btn{
+  font-size: medium;
+}
 }
 </style>

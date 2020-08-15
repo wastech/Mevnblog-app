@@ -2,9 +2,10 @@
 
   <div class="container">
     <div >
-      <div v-for="item in items" :key="item.id">
+      <div >
         <h2>{{ item.title }}</h2>
-        <img :src="item.image">
+         <h4> posted by  <span>{{item.author}} </span> <i>on {{item.createdAt}}</i></h4>
+        <img v-lazy="item.image">
         <h5>{{ item.category }}</h5>
         <p v-html="item.description"></p>
       </div>
@@ -28,14 +29,14 @@ export default {
   data() {
     return {
 
-      items: {},
+      item: {},
       id: this.$route.params.title,
     };
   },
   created() {
-    let url = `api/eventroute/getevent/${this.id}`;
-    axios.get(url).then((response) => {
-      this.items = response.data;
+    let url = `/api/eventroute/getevent/${this.id}`;
+    axios.get(url).then(response => {
+      this.item = response.data.data;
     });
   }
 }
@@ -44,11 +45,11 @@ export default {
 <style scoped>
 
 h2 {
+   font-family: 'Kelly Slab', cursive;
   text-align: center;
   text-transform: uppercase;
   font-size: 2em;
   margin: .67em 0;
-  font-family: serif;
   line-height: 171.9%;
   letter-spacing: .03em;
   margin-block-start: 0.67em;
@@ -59,7 +60,7 @@ h2 {
 }
 
 p {
-  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !important;
+  font-family: 'Kelly Slab', cursive;
   padding: 0;
   letter-spacing: .03em !important;
   overflow-x: hidden !important;
@@ -67,19 +68,21 @@ p {
   overflow-wrap: break-word;
 
 }
+span{
+  color: blue;
+}
 
 img {
   width: 100%;
   object-fit: cover;
 }
 
-h1 {
-  font-size: 2rem;
-  font-weight: bolder;
-}
 
 h5 {
   color: blue;
+   font-family: 'Kelly Slab', cursive;
+   margin-top: 1em;
+   margin-bottom: 1em;
 }
 
 button {

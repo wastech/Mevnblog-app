@@ -1,10 +1,11 @@
 <template>
 <div>
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12" v-for="item in items" :key="item.id">
+    <div >
+      <div>
         <h2>{{ item.title }}</h2>
-        <img :src="item.image">
+        <h4> posted by  <span>{{item.author}} </span> <i>on {{item.createdAt}}</i></h4>
+        <img v-lazy="item.image">
         <h5>{{ item.category }}</h5>
         <p v-html="item.description"></p>
       </div>
@@ -27,14 +28,14 @@ export default {
   data() {
     return {
 
-      items: {},
-      id: this.$route.params.title,
+      item: {},
+      id: this.$route.params.title
     };
   },
   created() {
-    let url = `api/history/get_history/${this.id}`;
-    axios.get(url).then(response => {
-      this.items = response.data;
+    let url = `/api/history/get_history/${this.id}`;
+    axios.get(url).then((response) => {
+      this.item = response.data.data;
     });
   }
 }
@@ -47,7 +48,7 @@ h2 {
   text-transform: uppercase;
   font-size: 2em;
   margin: .67em 0;
-  font-family: serif;
+  font-family: 'Kelly Slab', cursive;
   line-height: 171.9%;
   letter-spacing: .03em;
   margin-block-start: 0.67em;
@@ -56,11 +57,14 @@ h2 {
   margin-inline-end: 0px;
   font-weight: bold;
 }
+span{
+  color: blue;
+}
 
 p {
 
   overflow-wrap: break-word;
-  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !important;
+  font-family: 'Kelly Slab', cursive;
   padding: 0;
   letter-spacing: .03em !important;
   overflow-x: hidden !important;
@@ -79,6 +83,9 @@ h1 {
 
 h5 {
   color: blue;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: 'Kelly Slab', cursive;
 }
 
 button {

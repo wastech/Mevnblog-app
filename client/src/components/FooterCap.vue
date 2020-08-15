@@ -1,54 +1,67 @@
 <template>
-<div class="container">
-  <section class="subscribe pb-50 pt-70">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class=" mt-15 mb-15">
-            <h1>readdy to take a test drive?</h1>
-            <p>subscribe subscribe newsletter subscribe newsletter vsubscribe newsletter subscribe newsletter newsletter</p>
+  <div class="container">
+    <section class="subscribe pb-50 pt-70">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mt-15 mb-15">
+              <h1>readdy to take a test drive?</h1>
+            </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="subscribe-wrapper subscribe2-wrapper mb-15">
-            <div class="subscribe-form">
-              <form class="form-inline ml-4 mt-3">
-                <div class="row">
-                  <div class="col-8">
-                    <input class="form-control mr-sm-2" type="email" placeholder="@ enter your email" v-model="email" aria-label="@ enter your email">
+          <div class="col-md-6">
+            <div class="subscribe-wrapper subscribe2-wrapper mb-15">
+              <div class="subscribe-form">
+                <form class="form-inline ml-4 mt-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <input
+                        class="form-control mr-sm-2"
+                        type="email"
+                        placeholder="@ enter your email"
+                        v-model="email"
+                        aria-label="@ enter your email"
+                      />
+                    </div>
+                    <div class="col-4">
+                      <button
+                        class="btn btn-outline-success"
+                        type="submit "
+                        @click="addMails"
+                      >submit</button>
+                    </div>
                   </div>
-                  <div class="col-4 ">
-                    <button class="btn btn-outline-success " type="submit " @click="addMails">submit</button>
-                  </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
-      email: '',
-    }
+      email: "",
+    };
   },
   methods: {
-     addMails() {
-     let url = 'api/Newsroute/mail'
-      axios.post(uri, this.email).then((Response)=> {
-        console.log(response)
-      })
-      
-    }
-  }
-}
+    addMails() {
+      let url = "/api/Newsroute/mail";
+      axios
+        .post(url, this.email)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -62,7 +75,6 @@ h1 {
 p {
   max-width: 80%;
   color: #fff;
-
 }
 
 .container {
@@ -110,7 +122,6 @@ input {
   }
 
   h1 {
-
     color: #fff;
     font-weight: 100%;
     font-size: 2em;
@@ -129,7 +140,6 @@ input {
   img {
     width: 100%;
     height: 30%;
-
   }
 }
 </style>

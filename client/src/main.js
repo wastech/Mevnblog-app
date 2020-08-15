@@ -4,8 +4,9 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import wysiwyg from "vue-wysiwyg";
+import VueLazyload from "vue-lazyload";
 
-
+Vue.use(VueLazyload);
 Vue.use(wysiwyg, {});
 
 Vue.config.productionTip = false
