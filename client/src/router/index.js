@@ -1,72 +1,33 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import addBlogPost from "@/admin/addBlogPost.vue";
-import Admin from '@/admin/Admin.vue'
-import Posts from '@/admin/Posts.vue';
-import Login from "@/admin/Login.vue";
-import Register from "@/admin/Register.vue";
-import Subscribers from "@/admin/Subscribers.vue";
-import AddNewEvent from "@/admin/AddNewEvent.vue";
-import AddHistory from "@/admin/AddHistory.vue";
-import addNewArticle from "@/admin/addNewArticle.vue";
-import Events from "@/admin/Events.vue";
-import editEvent from "@/admin/editEvent.vue";
-import viewEvent from "@/components/viewEvent.vue";
-import viewHistory from "@/components/viewHistory.vue";
-import viewBlog from "@/components/viewBlog.vue";
-import viewPost from "@/components/viewPost.vue";
-import Article from "@/page/Article.vue"
-import Eventpage from "@/page/Eventpage.vue";
-import Customerpage from "@/page/Customerpage.vue";
+const Home = () => import('../views/Home.vue');
+const addBlogPost = () => import('@/admin/addBlogPost.vue');
+const Admin = () => import('@/admin/Admin.vue');
+const Posts = () => import('@/admin/Posts.vue');
+const Login = () => import('@/admin/Login.vue');
+const Register = () => import('@/admin/Register.vue');
+const Subscribers = () => import('@/admin/Subscribers.vue');
+const AddNewEvent = () => import('@/admin/AddNewEvent.vue');
+const AddHistory = () => import('@/admin/AddHistory.vue');
+const addNewArticle = () => import('@/admin/addNewArticle.vue');
+const Events = () => import('@/admin/Events.vue');
+const editEvent = () => import('@/admin/editEvent.vue');
+const ViewPost = () => import('@/components/ViewPost.vue');
+const viewEvent = () => import('@/components/viewEvent.vue');
+const viewHistory = () => import('@/components/viewHistory.vue');
+const viewBlog = () => import('@/components/viewBlog.vue');
+const Article = () => import('@/page/Article.vue');
+const Eventpage = () => import('@/page/Eventpage.vue');
+const Customerpage = () => import('@/page/Customerpage.vue');
 
 Vue.use(VueRouter)
 
 const routes = [
+	
 	{
-		path: "/customer-stories",
-		name: "viewcustomer",
-		component: Customerpage,
-	},
-	{
-		path: "/events",
-		name: "events",
-		component: Eventpage,
-	},
-	{
-		path: "/articles",
-		name: "article",
-		component: Article,
-	},
-	{
-		path: "/subscribers",
-		name: "subscriber",
-		component: Subscribers,
-	},
-	{
-		path: "/viewEvent/:title",
-		name: "viewevent",
-		component: viewEvent,
-	},
-	{
-		path: "/viewpost/:title",
-		name: "viewpost",
-		component: viewPost,
-	},
-	{
-		path: "/viewblog/:title",
-		name: "viewblog",
-		component: viewBlog,
-	},
-	{
-		path: "/viewhistory/:title",
-		name: "viewhistory",
-		component: viewHistory,
-	},
-	{
-		path: "/editEvent/:id",
-		name: "editEvent",
-		component: editEvent,
+		path: "/admin",
+		name: "admin",
+		component: Admin,
 	},
 	{
 		path: "/events",
@@ -75,18 +36,13 @@ const routes = [
 	},
 	{
 		path: "/addarticle",
-		name: "article",
+		name: "addarticle",
 		component: addNewArticle,
 	},
 	{
 		path: "/addHistory",
 		name: "AddHistory",
 		component: AddHistory,
-	},
-	{
-		path: "/addNewEvent",
-		name: "AddNewEvent",
-		component: AddNewEvent,
 	},
 	{
 		path: "/",
@@ -115,10 +71,57 @@ const routes = [
 		component: addBlogPost,
 	},
 	{
-		path: "/admin",
-		name: "admin",
-		component: Admin,
+		path: "/customer-stories",
+		name: "viewcustomer",
+		component: Customerpage,
 	},
+	{
+		path: "/eventpage",
+		name: "eventpage",
+		component: Eventpage,
+	},
+	{
+		path: "/addNewEvent",
+		name: "AddNewEvent",
+		component: AddNewEvent,
+	},
+	{
+		path: "/articles",
+		name: "article",
+		component: Article,
+	},
+	{
+		path: "/subscribers",
+		name: "subscriber",
+		component: Subscribers,
+	},
+	{
+		path: "/event/:title",
+		name: "viewevent",
+		component: viewEvent,
+	},
+	{
+		path: "/blog/:title",
+		name: "viewblog",
+		component: viewBlog,
+	},
+	{
+		path: "/history/:title",
+		name: "viewhistory",
+		component: viewHistory,
+	},
+	{
+		path: "/article/:title",
+		name: "viewpost",
+		component: ViewPost,
+	},
+	
+	{
+		path: "/editEvent/:id",
+		name: "editEvent",
+		component: editEvent,
+	}
+	
 ];
 
 const router = new VueRouter({

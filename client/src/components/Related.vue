@@ -25,7 +25,7 @@ export default {
     };
   },
   created() {
-    let uri = `api/eventroute/get_event_by_category/${this.category}}`;
+    let uri = 'api/eventroute/get_event_by_category';
     axios.get(uri).then((response) => {
       this.items = response.data.data;
     });

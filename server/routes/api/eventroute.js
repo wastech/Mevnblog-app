@@ -8,6 +8,6 @@ router.get("/events", EventController.getEvents);
 router.delete("/deleteevent/:id", EventController.deleteEvent);
 router.get("/getevent/:id", EventController.getEvent);
 router.post("/updateevent/:id", EventController.updateEvent);
-router.post("/get_event_by_category/:category", EventController.getEventByCategory);
+router.post("/get_event_by_category", EventController.getEventByCategory);
 
 module.exports = router;
