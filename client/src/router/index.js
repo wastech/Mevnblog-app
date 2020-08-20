@@ -12,7 +12,7 @@ const AddHistory = () => import('@/admin/AddHistory.vue');
 const addNewArticle = () => import('@/admin/addNewArticle.vue');
 const Events = () => import('@/admin/Events.vue');
 const editEvent = () => import('@/admin/editEvent.vue');
-const viewPost = () => import('@/components/viewPost.vue');
+const ViewPost = () => import('@/components/ViewPost.vue');
 const viewEvent = () => import('@/components/viewEvent.vue');
 const viewHistory = () => import('@/components/viewHistory.vue');
 const viewBlog = () => import('@/components/viewBlog.vue');
@@ -99,6 +99,7 @@ const routes = [
 		path: "/event/:title",
 		name: "viewevent",
 		component: viewEvent,
+		props: true
 	},
 	{
 		path: "/blog/:title",
@@ -113,7 +114,7 @@ const routes = [
 	{
 		path: "/article/:title",
 		name: "viewpost",
-		component: viewPost,
+		component: ViewPost,
 	},
 	
 	{

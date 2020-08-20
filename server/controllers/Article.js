@@ -91,7 +91,7 @@ module.exports={
 	},
 
 	 getArticleByCategory(req,res){		 
-	 Article.find({ category: req.query.category }, (err, data) => {
+	 Article.find({ category: req.params.category }, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",

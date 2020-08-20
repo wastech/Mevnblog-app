@@ -10,7 +10,7 @@
         <p v-html="item.description"></p>
       </div>
     </div>
-    <Related />
+  <Related v-bind:category="item.category" />
   </div>
 </div>
 </template>
@@ -27,7 +27,6 @@ export default {
   },
   data() {
     return {
-
       item: {},
       id: this.$route.params.title
     };

@@ -17,7 +17,6 @@ module.exports = {
     });
   },
   getMails(req, res) {
-    console.log("--getting mails--");
     Newsletter.find({})
       .sort("-date")
       .exec((err, data) => {
@@ -37,7 +36,6 @@ module.exports = {
   },
 
   deleteMail(req, res) {
-    console.log("--deleting mail--");
     Newsletter.deleteOne({ _id: req.params.id }, (err, data) => {
       if (!err) {
         res.json({

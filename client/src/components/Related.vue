@@ -3,7 +3,7 @@
     <div class="container">
       <h1>related post</h1>
       <div class="row">
-        <div class="col-sm-4" v-for="item in items.slice(0,3).reverse()" :key="item._id">
+        <div class="col-sm-4" v-for="item in items .slice(0,3).reverse()" :key="item._id">
           <img v-lazy="item.image" />
           <h4>{{item.category}}</h4>
           <h3>{{item.title}}</h3>
@@ -19,16 +19,25 @@
 <script>
 import axios from "axios";
 export default {
+  props: {
+    category: String,
+  },
   data() {
     return {
       items: [],
     };
   },
-  created() {
-    let uri = `api/eventroute/get_event_by_category/${this.category}}`;
-    axios.get(uri).then((response) => {
-      this.items = response.data.data;
-    });
+  watch: {
+    $props: {
+      handler: async function (newProps) {
+        console.log("newProps.category", newProps.category);
+        const response = await axios.get(
+          `/api/eventroute/get_event_by_category/${newProps.category}`
+        );
+        this.items = response.data.data;
+      },
+      deep: true,
+    },
   },
 };
 </script>

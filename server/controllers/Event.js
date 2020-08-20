@@ -92,7 +92,7 @@ module.exports={
 
 	 getEventByCategory(req,res){
 		console.log(req.body);
-		 Event.find({ category: req.query.category }, (err, data) => {
+		 Event.find({ category: req.params.category }, (err, data) => {
 				if (!err) {
 					res.json({
 						status: "success",
