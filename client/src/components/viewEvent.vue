@@ -12,6 +12,8 @@
     </div>
 
     <Related v-bind:category="item.category"/>
+    <comment/>
+    <replied/>
   </div>
 
 </template>
@@ -20,11 +22,16 @@
 import axios from 'axios'
 import Related from "@/components/Related.vue";
 import Newsletter from "@/components/Newsletter.vue";
+import comment from "@/components/comment.vue"
+import replied from "@/components/replied.vue"
+
 export default {
   name: "viewevent",
   components: {
     Related,
     Newsletter,
+    comment,
+    replied
   },
   data() {
     return {

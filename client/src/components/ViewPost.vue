@@ -1,27 +1,33 @@
 <template>
-<div>
+
   <div class="container">
-      <div >
         <h2>{{ item.title }}</h2>
          <h4> posted by  <span>{{item.author}} </span> <i>on {{item.createdAt}}</i></h4>
         <img v-lazy="item.image">
         <h5>{{ item.category }}</h5>
         <p v-html="item.description"></p>
-      </div>
-    </div>
-    <Related />
+    
+    
+      <RelatedArt v-bind:category="item.category"/>
+    <comment/>
+    <replied/>
   </div>
+
 </template>
 
 <script>
 import axios from 'axios'
-import Related from "@/components/Related.vue";
+import RelatedArt from "@/components/RelatedArt.vue";
 import Newsletter from "@/components/Newsletter.vue";
+import comment from "@/components/comment.vue"
+import replied from "@/components/replied.vue"
 export default {
   name: "viewpost",
   components: {
-    Related,
+    RelatedArt,
     Newsletter,
+    comment,
+    replied
   },
   data() {
     return {

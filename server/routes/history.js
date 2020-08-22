@@ -8,9 +8,6 @@ router.get("/get_histories", HistoryController.getHistories);
 router.delete("/delete_history/:id", HistoryController.deleteHistory);
 router.get("/get_history/:id", HistoryController.getHistory);
 router.put("/update_history/:id", HistoryController.updateHistory);
-router.post(
-	"/get_history_by_category/:category",
-	HistoryController.getHistoryByCategory,
-);
+router.get("/get_history_by_category/:category",HistoryController.getHistoryByCategory);
 
 module.exports = router;

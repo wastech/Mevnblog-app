@@ -32,7 +32,7 @@ export default {
       handler: async function (newProps) {
         console.log("newProps.category", newProps.category);
         const response = await axios.get(
-          `/api/eventroute/get_event_by_category/${newProps.category}`
+          `/api/blogpost/get_blog_by_category/${newProps.category}`
         );
         this.items = response.data.data;
         console.log(response)

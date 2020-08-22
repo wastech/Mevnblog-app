@@ -10,20 +10,26 @@
         <p v-html="item.description"></p>
       </div>
     </div>
-    <Related v-bind:category="item.category"/>
+      <RelatedBlo v-bind:category="item.category"/>
+    <comment/>
+    <replied/>
   </div>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
-import Related from "@/components/Related.vue";
+import RelatedBlo from "@/components/RelatedBlo.vue";
 import Newsletter from "@/components/Newsletter.vue";
+import comment from "@/components/comment.vue"
+import replied from "@/components/replied.vue"
 export default {
   name: "viewblog",
   components: {
-    Related,
+    RelatedBlo,
     Newsletter,
+    comment,
+    replied
   },
   data() {
     return {

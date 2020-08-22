@@ -1,5 +1,5 @@
 <template>
-<div>
+
   <div class="container">
     <div >
       <div>
@@ -10,8 +10,11 @@
         <p v-html="item.description"></p>
       </div>
     </div>
-  <Related v-bind:category="item.category" />
-  </div>
+    
+   <Related v-bind:category="item.category"/>
+    <comment/>
+    <replied/>
+
 </div>
 </template>
 
@@ -19,11 +22,15 @@
 import axios from 'axios'
 import Related from "@/components/Related.vue";
 import Newsletter from "@/components/Newsletter.vue";
+import comment from "@/components/comment.vue"
+import replied from "@/components/replied.vue"
 export default {
   name: "viewhistory",
   components: {
     Related,
     Newsletter,
+    comment,
+    replied
   },
   data() {
     return {

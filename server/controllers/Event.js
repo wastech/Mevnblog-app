@@ -93,12 +93,14 @@ module.exports={
 	 getEventByCategory(req,res){
 		console.log(req.body);
 		 Event.find({ category: req.params.category }, (err, data) => {
+			 console.log(data)
 				if (!err) {
 					res.json({
 						status: "success",
 						message: "category fetched successfully",
 						data: data,
 					});
+					console.log(data)
 				} else {
 					res.json({
 						status: "fail",
