@@ -14,8 +14,10 @@
 </template>
 
 <script>
-import FirstSide from '@/page/FirstSide.vue'
-import SecondSide from '@/page/SecondSide.vue'
+//import FirstSide from '@/page/FirstSide.vue'
+const FirstSide = () => import(/* webpackChunkName: "group-foo" */ '@/page/FirstSide.vue')
+//import SecondSide from '@/page/SecondSide.vue'
+const SecondSide = () => import(/* webpackChunkName: "group-foo" */ '@/page/SecondSide.vue')
 export default {
   components: {
     FirstSide,

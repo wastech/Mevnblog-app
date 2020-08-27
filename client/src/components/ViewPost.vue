@@ -17,10 +17,14 @@
 
 <script>
 import axios from 'axios'
-import RelatedArt from "@/components/RelatedArt.vue";
-import Newsletter from "@/components/Newsletter.vue";
-import comment from "@/components/comment.vue"
-import replied from "@/components/replied.vue"
+//import RelatedArt from "@/components/RelatedArt.vue";
+const RelatedArt = () => import(/* webpackChunkName: "group-foo" */ '@/components/RelatedArt.vue')
+//import Newsletter from "@/components/Newsletter.vue";
+const Newsletter = () => import(/* webpackChunkName: "group-foo" */ '@/components/Newsletter.vue')
+//import comment from "@/components/comment.vue"
+const comment = () => import(/* webpackChunkName: "group-foo" */ '@/components/comment.vue')
+//import replied from "@/components/replied.vue"
+const replied = () => import(/* webpackChunkName: "group-foo" */ '@/components/replied.vue')
 export default {
   name: "viewpost",
   components: {

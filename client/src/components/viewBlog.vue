@@ -19,10 +19,14 @@
 
 <script>
 import axios from 'axios'
-import RelatedBlo from "@/components/RelatedBlo.vue";
-import Newsletter from "@/components/Newsletter.vue";
-import comment from "@/components/comment.vue"
-import replied from "@/components/replied.vue"
+//import RelatedBlo from "@/components/RelatedBlo.vue";
+const RelatedBlo = () => import(/* webpackChunkName: "group-foo" */ '@/components/RelatedBlo.vue')
+//import Newsletter from "@/components/Newsletter.vue";
+const Newsletter = () => import(/* webpackChunkName: "group-foo" */ '@/components/Newsletter.vue')
+//import comment from "@/components/comment.vue"
+const comment = () => import(/* webpackChunkName: "group-foo" */ '@/components/comment.vue')
+//import replied from "@/components/replied.vue"
+const replied = () => import(/* webpackChunkName: "group-foo" */ '@/components/replied.vue')
 export default {
   name: "viewblog",
   components: {
