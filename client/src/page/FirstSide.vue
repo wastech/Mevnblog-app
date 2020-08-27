@@ -36,7 +36,7 @@ h5 {
   color: blue;
   text-align: left;
   margin-top: 1rem;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
 }
 
 img {
@@ -53,11 +53,11 @@ h1 {
   font-weight: 3em;
   margin: 0.67em 0;
   font-weight: 400 !important;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
 }
 
 P.mt-1 {
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
   letter-spacing: 0.3px;
   font-size: 30px;
   line-height: 180%;
@@ -90,7 +90,7 @@ button {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     font-size: medium;
-    font-family: "Kelly Slab", cursive;
+    font-family:Times, Times New Roman, serif;
     font-weight: bolder !important;
   }
   P.mt-1 {
@@ -101,7 +101,7 @@ button {
     text-align: left;
     font-size: small;
     margin-top: 1rem;
-    font-family: "Kelly Slab", cursive;
+    font-family:Times, Times New Roman, serif;
   }
 }
 </style>

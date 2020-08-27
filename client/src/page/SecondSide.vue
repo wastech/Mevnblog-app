@@ -48,7 +48,7 @@ img.img2 {
 
 h5 {
   color: gold;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
 }
 
 .clearfix::after {
@@ -63,7 +63,7 @@ h3 {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   font-size: 1.5em;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
   margin: 0.67em 0;
   font-weight: 400 !important;
   max-width: 100%;
@@ -84,7 +84,7 @@ h3 {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
   font-size: 0.9em;
   max-width: 100%;
 }

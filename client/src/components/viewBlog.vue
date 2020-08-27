@@ -63,13 +63,13 @@ h2 {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
-   font-family: 'Kelly Slab', cursive;
+   font-family: Times, Times New Roman, serif;
 }
 
 p {
 
   overflow-wrap: break-word;
-  font-family: 'Kelly Slab', cursive;
+  font-family: Times, Times New Roman, serif;
   padding: 0;
   letter-spacing: .03em !important;
   overflow-x: hidden !important;
@@ -87,14 +87,14 @@ img {
 h1 {
   font-size: 2rem;
   font-weight: bolder;
-   font-family: 'Kelly Slab', cursive;
+   font-family: Times, Times New Roman, serif;
 }
 
 h5 {
   color: blue;
   margin-top: 1em;
   margin-bottom: 1em;
-   font-family: 'Kelly Slab', cursive;
+   font-family: Times, Times New Roman, serif;
 }
 
 button {

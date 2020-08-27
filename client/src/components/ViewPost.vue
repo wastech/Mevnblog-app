@@ -52,7 +52,7 @@ h2 {
   text-align: center;
   text-transform: uppercase;
   font-size: 2em;
-  font-family: 'Kelly Slab', cursive;
+  font-family: Times, Times New Roman, serif;
   line-height: 171.9%;
   letter-spacing: .03em;
   margin-block-start: 0.67em;
@@ -63,14 +63,14 @@ h2 {
 }
 span{
   color: blue;
-   font-family: 'Kelly Slab', cursive;
+   font-family: Times, Times New Roman, serif;
   
 }
 
 p {
 
   overflow-wrap: break-word;
-   font-family: 'Kelly Slab', cursive;
+   font-family: Times, Times New Roman, serif;
   padding: 0;
   letter-spacing: .03em !important;
   overflow-x: hidden !important;
@@ -86,7 +86,7 @@ h5 {
   color: blue;
    margin-top: 1em;
    margin-bottom: 1em;
-   font-family: 'Kelly Slab', cursive;
+   font-family: Times, Times New Roman, serif;
 }
 
 button {

@@ -85,7 +85,7 @@ module.exports = {
 	},
 
 	getHistoryByCategory(req, res) {
-		History.find({ category: req.query.category }, (err, data) => {
+		History.find({ category: req.params.category }, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",

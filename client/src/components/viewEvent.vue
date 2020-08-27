@@ -51,7 +51,7 @@ export default {
 <style scoped>
 
 h2 {
-   font-family: 'Kelly Slab', cursive;
+   font-family: Times, Times New Roman, serif;
   text-align: center;
   text-transform: uppercase;
   font-size: 2em;
@@ -66,7 +66,7 @@ h2 {
 }
 
 p {
-  font-family: 'Kelly Slab', cursive;
+  font-family:Times, Times New Roman, serif;
   padding: 0;
   letter-spacing: .03em !important;
   overflow-x: hidden !important;
@@ -86,7 +86,7 @@ img {
 
 h5 {
   color: blue;
-   font-family: 'Kelly Slab', cursive;
+   font-family: Times, Times New Roman, serif;
    margin-top: 1em;
    margin-bottom: 1em;
 }

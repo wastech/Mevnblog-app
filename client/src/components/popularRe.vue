@@ -54,7 +54,7 @@ export default {
 
 h1 {
   display: block;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
   font-size: 1.5em;
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
@@ -66,7 +66,7 @@ h1 {
 }
 
 .row {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 img {
@@ -74,7 +74,7 @@ img {
 }
 
 h5 {
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -92,7 +92,7 @@ img.img2 {
 
 h4 {
   color: blue;
-  font-family: "Kelly Slab", cursive;
+  font-family:Times, Times New Roman, serif;
 }
 
 .clearfix::after {
@@ -104,17 +104,19 @@ h4 {
 @media screen and (max-width: 750px) {
   .container {
     max-width: 95%;
+        margin-top: -5em;
+    margin-bottom: 2em;
   }
   h4 {
     color: blue;
-    font-family: "Kelly Slab", cursive;
+    font-family: Times, Times New Roman, serif;
     font-size: large;
   }
   h5 {
     max-width: 100%;
   }
   h5 {
-    font-family: "Kelly Slab", cursive;
+    font-family: Times, Times New Roman, serif;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;

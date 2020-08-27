@@ -86,7 +86,7 @@ module.exports = {
 	},
 
 	getBlogByCategory(req, res) {
-		Blog.find({ category: req.query.category }, (err, data) => {
+		Blog.find({ category: req.params.category }, (err, data) => {
 			if (!err) {
 				res.json({
 					status: "success",

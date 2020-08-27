@@ -44,7 +44,7 @@ export default {
 
 h4 {
   color: blue;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
   margin-top: 1rem;
 }
 
@@ -62,7 +62,7 @@ h1 {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
 }
 
 h5 {
@@ -73,7 +73,7 @@ h5 {
   font-size: 1.5em;
   margin: 0.67em 0;
   font-weight: 400 !important;
-  font-family: "Kelly Slab", cursive;
+  font-family:Times, Times New Roman, serif;
 }
 
 button {
@@ -83,10 +83,11 @@ button {
 @media screen and (max-width: 750px) {
   .container {
   max-width: 95%;
+  margin-top: -2em;
 }
 h4 {
   color: blue;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
   margin-top: 1rem;
   font-size:larger;
 }
@@ -98,7 +99,7 @@ h5 {
   font-size:medium;
   margin: 0.67em 0;
   font-weight: 700 !important;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
 }
   img {
     width: 100%;

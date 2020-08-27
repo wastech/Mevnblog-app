@@ -62,7 +62,7 @@ h1 {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
 }
 
 p {
@@ -77,7 +77,7 @@ p {
 
 h4 {
   color: orange;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
 }
 
 img {
@@ -88,7 +88,7 @@ img {
 }
 
 h3 {
-  font-family: "Kelly Slab", cursive;
+  font-family:Times, Times New Roman, serif;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -115,11 +115,11 @@ button {
   }
   h4 {
     color: orange;
-    font-family: "Kelly Slab", cursive;
+    font-family: Times, Times New Roman, serif;
     font-size: large;
   }
   h3 {
-    font-family: "Kelly Slab", cursive;
+    font-family: Times, Times New Roman, serif;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;

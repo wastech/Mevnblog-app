@@ -81,7 +81,7 @@ h3 {
   -webkit-box-orient: vertical;
   text-align: center;
   font-size: large;
-  font-family: "Kelly Slab", cursive;
+  font-family: Times, Times New Roman, serif;
   font-weight: bolder !important;
 }
 .pagination > li > a {

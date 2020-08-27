@@ -6,7 +6,7 @@
     <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="name ">
   </div>
   <div class="form-group">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="comment"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="you can't comment  for now. will be working on it later"></textarea>
   </div>
   <button type="button" class="btn btn-success">Post Comment</button>
 </form>
@@ -19,7 +19,7 @@
   margin: 0 auto;
 }*/
 div.title{
-font-family: Arial Narrow, sans-serif;
+font-family: Times, Times New Roman, serif;
 font-style: oblique;
 font-weight: bold;
 font-variant: small-caps;
