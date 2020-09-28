@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
+const moment=require('moment');
 
 var PostSchema = new Schema({
   title: { type: "String" },
@@ -7,7 +8,7 @@ var PostSchema = new Schema({
   description: { type: "String" },
   image: { type: "String" },
   category: { type: "String" },
-  createdAt: { type: "Date", default: Date.now },
+  date:{type:String, default:moment().format('MMMM Do YYYY, h:mm:ss a')},
   upvotes: { type: Number, default: 0 },
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });

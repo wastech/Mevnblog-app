@@ -4,7 +4,7 @@
     <div >
       <div >
         <h2>{{ item.title }}</h2>
-         <h4> posted by  <span>{{item.author}} </span> <i>on {{item.createdAt}}</i></h4>
+         <h4> posted by  <span>{{item.author}} </span> <i>on {{item.date}}</i></h4>
         <img v-lazy="item.image">
         <h5>{{ item.category }}</h5>
         <p v-html="item.description"></p>

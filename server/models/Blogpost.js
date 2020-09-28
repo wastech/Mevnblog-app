@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
+const moment=require('moment');
 
 var BlogSchema = new Schema({
 	title: { type: "String" },
@@ -7,7 +8,7 @@ var BlogSchema = new Schema({
 	description: { type: "String" },
 	image: { type: "String" },
 	category: { type: "String" },
-	createdAt: { type: "Date", default: Date.now },
+	createdAt: {type:String, default:moment().format('MMMM Do YYYY, h:mm:ss a')}
 });
 
 var Blog = mongoose.model("Blog", BlogSchema);
