@@ -25,7 +25,7 @@ export default {
       items: [],
     };
   },
-  created() {
+  mounted() {
     let uri = "api/blogpost/get_blogs";
     axios.get(uri).then((response) => {
       this.items = response.data.data;

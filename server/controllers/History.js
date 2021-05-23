@@ -3,7 +3,6 @@ var sanitize = require("sanitize-html");
 
 module.exports = {
 	saveHistory(req, res) {
-		const history = req.body;
 	  history.description = sanitize(history.description);
 		History.create(history, (err, data) => {
 			if (!err) {

@@ -22,7 +22,7 @@ export default {
       posts: [],
     };
   },
-  created() {
+  mounted() {
     let uri = "api/history/get_histories";
     axios.get(uri).then((response) => {
       this.posts = response.data.data;

@@ -24,7 +24,7 @@ export default {
       items: [],
     };
   },
-  created() {
+  mounted() {
     let uri = "api/eventroute/events";
     axios.get(uri).then((response) => {
       this.items = response.data.data;

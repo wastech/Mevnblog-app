@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello container">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <a class="navbar-brand">
         <router-link to="/">wastech</router-link>
@@ -36,7 +36,7 @@
             </a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <!-- <form class="form-inline my-2 my-lg-0">
           <input
             class="form-control mr-sm-2"
             type="search"
@@ -46,7 +46,7 @@
           <button class="btn btn-primary my-2 my-sm-0" type="submit">
             <router-link to="/admin">Subscribe</router-link>
           </button>
-        </form>
+        </form> -->
       </div>
     </nav>
   </div>

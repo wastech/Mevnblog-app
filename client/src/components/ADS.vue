@@ -1,13 +1,13 @@
 <template>
   <div class="main">
-    <div class="text">
+    <!-- <div class="text">
       <h3>ADS goes here</h3>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <style scoped>
-.main {
+/* .main {
   width: 100%;
   height: 70%;
   background-color: blue;
@@ -25,5 +25,5 @@ h3 {
   .main {
     display: none;
   }
-}
+} */
 </style>

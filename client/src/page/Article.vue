@@ -53,7 +53,7 @@ export default {
       articles: [],
     };
   },
-  created() {
+  mounted() {
     let uri = "api/article/get_articles";
     axios.get(uri).then((response) => {
       this.articles = response.data.data;

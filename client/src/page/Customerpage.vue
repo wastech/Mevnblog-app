@@ -27,7 +27,7 @@ export default {
       customers: [],
     };
   },
-  created() {
+  mounted() {
     let uri = "api/history/get_histories";
     axios.get(uri).then((response) => {
       this.customers = response.data.data;

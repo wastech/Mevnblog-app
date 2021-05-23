@@ -50,7 +50,6 @@ module.exports={
 	},
 
 	 getEvent(req,res){
-		console.log(req.body);
 		 Event.findById(  req.params.id , (err, data) => {
 				if (!err) {
 					res.json({
@@ -91,7 +90,6 @@ module.exports={
 	 },
 
 	 getEventByCategory(req,res){
-		console.log(req.body);
 		 Event.find({ category: req.params.category }, (err, data) => {
 			 console.log(data)
 				if (!err) {

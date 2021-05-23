@@ -43,7 +43,7 @@ export default {
       id: this.$route.params.title,
     };
   },
-  created() {
+  mounted() {
     let url = `/api/eventroute/getevent/${this.id}`;
     axios.get(url).then(response => {
       this.item = response.data.data;

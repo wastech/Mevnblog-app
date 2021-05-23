@@ -25,7 +25,6 @@ module.exports = {
 						message: "articles fetched successfully",
 						data: data,
 					});
-					console.log(req.body);
 				} else {
 					res.json({
 						status: "fail",
@@ -52,7 +51,7 @@ module.exports = {
 	},
 
 	getBlog(req, res) {
-		console.log(req.body);
+	
 		Blog.findOne({ _id: req.params.id }, (err, data) => {
 			if (!err) {
 				res.json({
