@@ -30,12 +30,12 @@ export default {
   watch: {
     $props: {
       handler: async function (newProps) {
-        console.log("newProps.category", newProps.category);
+      
         const response = await axios.get(
           `/api/article/get_article_by_category/${newProps.category}`
         );
         this.items = response.data.data;
-        console.log(response)
+       
       },
       deep: true,
     },
